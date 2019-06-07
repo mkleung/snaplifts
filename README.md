@@ -31,3 +31,8 @@ Notes
 ```> yarn add react-native@0.55.4 react-native-web@0.10.0 react-art@16.8.2```
 
 ```> yarn add -D @types/react-native@0.55.4```
+
+
+### Running
+
+```> yarn start```

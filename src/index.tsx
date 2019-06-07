@@ -1,10 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
+import { AppRegistry } from 'react-native';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { AppRegistry } from 'react-native';
+
 
 // register the app
 AppRegistry.registerComponent('App', () => App);
