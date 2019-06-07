@@ -18,3 +18,16 @@ Snaplifts React Native App
 
 
 [Source](https://www.youtube.com/watch?v=_CBYbEGvxYY)
+
+
+
+Notes
+=====
+
+### Installation
+
+```> yarn create react-app snaplifts --typescript```
+
+```> yarn add react-native@0.55.4 react-native-web@0.10.0 react-art@16.8.2```
+
+```> yarn add -D @types/react-native@0.55.4```
