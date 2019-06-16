@@ -36,3 +36,14 @@ Notes
 ### Running
 
 ```> yarn start```
+
+
+### React native cli
+
+```
+> npm i -g react-native-cli
+```
+
+```
+> react-native init snaplifts --template typescript
+```
