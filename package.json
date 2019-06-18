@@ -1,14 +1,15 @@
 {
-  "name": "snapliftsapp",
+  "name": "snaplifts",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "android":"react-native run-android",
     "test": "jest"
   },
   "dependencies": {
-    "react": "16.8.3",
-    "react-native": "0.59.9"
+    "react": "^16.8.2",
+    "react-native": "^0.59.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

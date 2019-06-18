@@ -38,6 +38,9 @@ Notes
 ```> yarn start```
 
 
+```> yarn run android```
+
+
 ### React native cli
 
 ```
@@ -47,3 +50,17 @@ Notes
 ```
 > react-native init snaplifts --template typescript
 ```
+
+```
+> npm i react@16.8.2 react-native@0.59.0-rc.1
+```
+
+### Run react native on android studio in windows
+
+On two separate terminals
+
+```> yarn start```
+
+```> npm run android```
+
+https://www.youtube.com/watch?v=uhuoTcbquic

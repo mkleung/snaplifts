@@ -8,8 +8,8 @@
  * @format
  */
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import React, {Component, useState} from 'react';
+import {Platform, StyleSheet, Text, View, Button} from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -18,18 +18,20 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-interface Props {}
-export default class App extends Component<Props> {
-  render() {
-    return (
+
+const App = () => {
+  const [count, setCount] = useState(0);
+  return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.tsx</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text style={styles.instructions}>{count}</Text>
+        <Button title="incrememnt" onPress={() => setCount(count + 1)} />
       </View>
     );
-  }
 }
+
+export default App
 
 const styles = StyleSheet.create({
   container: {

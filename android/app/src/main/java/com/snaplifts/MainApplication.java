@@ -1,4 +1,4 @@
-package com.snapliftsapp;
+package com.snaplifts;
 
 import android.app.Application;
 
