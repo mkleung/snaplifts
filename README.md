@@ -1,8 +1,8 @@
 Snaplifts React Native App
 
-- [ ] Setting up a React Native Web Project
-- [ ] Setting Up React Native Hooks
-- [ ] Setting Up a React Native Web Monorepo
+- [x] Setting up a React Native Web Project
+- [x] Setting Up React Native Hooks
+- [x] Setting Up a React Native Web Monorepo
 - [ ] Configuring React Native for Yarn Workspaces
 - [ ] How to use Mobx with React Hooks
 - [ ] Navigation in React Native Web
@@ -17,7 +17,7 @@ Snaplifts React Native App
 - [ ] Deploy React Native Web to Netlify
 
 
-https://www.youtube.com/watch?v=_CBYbEGvxYY
+https://youtu.be/_CBYbEGvxYY?t=990
 
 
 
@@ -49,6 +49,60 @@ Install React native cli
 
 ``` > npm i react@16.8.2 react-native@0.59.0 ```
 
+To run, use two different terminals
 
+```> yarn start ```
+
+```> npm run android  ```
 
 https://www.youtube.com/watch?v=uhuoTcbquic
+
+
+### MonoRepo
+
+```> npm init```
+
+Add this to package.json
+```
+{
+  "private": true,
+  "name": "snaplifts",
+  "version": "1.0.0",
+  "description": "Snaplifts React Native App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "packages/*"
+  ]
+}
+
+```
+
+Remove all node_modules
+
+```> rm -rf packages/*/node_modules/```
+
+```> yarn```
+
+Add react and react native inside common
+
+```> yarn add react-native@0.59.0 react@16.8.2```
+
+```> yarn add -D typescript@3.3.3 @types/react-native@0.57.36  ```
+
+Create a tsconfig file
+
+Inside common/package.json
+ ```
+ "scripts": {
+    "build": "tsc"
+  }
+  ```
+
+
+```> yarn build```
