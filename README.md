@@ -17,50 +17,38 @@ Snaplifts React Native App
 - [ ] Deploy React Native Web to Netlify
 
 
-[Source](https://www.youtube.com/watch?v=_CBYbEGvxYY)
+https://www.youtube.com/watch?v=_CBYbEGvxYY
 
 
 
 Notes
 =====
 
-### Installation
+### Creating the React Web Project
 
-```> yarn create react-app snaplifts --typescript```
+```> yarn create react-app web --typescript```
 
 ```> yarn add react-native@0.55.4 react-native-web@0.10.0 react-art@16.8.2```
 
-```> yarn add -D @types/react-native@0.55.4```
+```> yarn add -D @types/react-native@0.55.4```  
+
+To run:
+
+```> yarn start ```
+
+Go to localhost:3000
 
 
-### Running
+### creating the React Native Mobile App
 
-```> yarn start```
+Install React native cli
+
+``` > npm i -g react-native-cli ```
+
+``` > react-native init app --template typescript ```
+
+``` > npm i react@16.8.2 react-native@0.59.0 ```
 
 
-```> yarn run android```
-
-
-### React native cli
-
-```
-> npm i -g react-native-cli
-```
-
-```
-> react-native init snaplifts --template typescript
-```
-
-```
-> npm i react@16.8.2 react-native@0.59.0-rc.1
-```
-
-### Run react native on android studio in windows
-
-On two separate terminals
-
-```> yarn start```
-
-```> npm run android```
 
 https://www.youtube.com/watch?v=uhuoTcbquic
