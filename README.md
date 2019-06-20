@@ -17,7 +17,7 @@ Snaplifts React Native App
 - [ ] Deploy React Native Web to Netlify
 
 
-https://youtu.be/_CBYbEGvxYY?t=990
+https://youtu.be/_CBYbEGvxYY?t=2400
 
 
 
@@ -28,7 +28,7 @@ Notes
 
 ```> yarn create react-app web --typescript```
 
-```> yarn add react-native@0.55.4 react-native-web@0.10.0 react-art@16.8.2```
+```> yarn add react-native@0.59.1 react-native-web@0.10.0 react-art@16.8.2```
 
 ```> yarn add -D @types/react-native@0.55.4```  
 
@@ -47,62 +47,15 @@ Install React native cli
 
 ``` > react-native init app --template typescript ```
 
-``` > npm i react@16.8.2 react-native@0.59.0 ```
+``` > npm i react@16.8.2 react-native@0.59.1 ```
 
 To run, use two different terminals
 
 ```> yarn start ```
 
-```> npm run android  ```
+```> yarn start --reset-cache ```
+
+```> yarn run android  ```
 
 https://www.youtube.com/watch?v=uhuoTcbquic
 
-
-### MonoRepo
-
-```> npm init```
-
-Add this to package.json
-```
-{
-  "private": true,
-  "name": "snaplifts",
-  "version": "1.0.0",
-  "description": "Snaplifts React Native App",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "workspaces": [
-    "packages/*"
-  ]
-}
-
-```
-
-Remove all node_modules
-
-```> rm -rf packages/*/node_modules/```
-
-```> yarn```
-
-Add react and react native inside common
-
-```> yarn add react-native@0.59.0 react@16.8.2```
-
-```> yarn add -D typescript@3.3.3 @types/react-native@0.57.36  ```
-
-Create a tsconfig file
-
-Inside common/package.json
- ```
- "scripts": {
-    "build": "tsc"
-  }
-  ```
-
-
-```> yarn build```
