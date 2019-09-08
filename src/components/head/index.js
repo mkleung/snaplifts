@@ -34,8 +34,8 @@ class Head extends React.Component {
         <input id="dashboard" type="radio" name="lifts" checked />
         <input id="lifts" type="radio" name="lifts" />
 
-        <label className="labelDashboard" for="dashboard"><i className="material-icons">directions_run</i></label>
-        <label className="labelSetting" for="lifts"><i className="material-icons">settings_applications</i></label>
+        <label className="label" for="dashboard"><i className="material-icons">directions_run</i></label>
+        <label className="label" for="lifts"><i className="material-icons">settings_applications</i></label>
 
       </div>
     );

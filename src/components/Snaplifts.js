@@ -1,7 +1,9 @@
 import React from "react";
 import Head from "./head";
-import Items from "./items";
-import Add from "./add";
+import Workouts from "./workouts";
+
+import Dashboard from "./dashboard";
+
 import "./snaplifts.scss";
 
 class Snaplifts extends React.Component {
@@ -64,12 +66,19 @@ class Snaplifts extends React.Component {
     return (
       <div className="list">
         <Head currentWorkout={this.state.currentWorkout} />
-        <Items items={this.state.items} deleteItem={this.deleteItem} />
-        <Add
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-          value={this.state.value}
-        />
+        <div className="body">
+
+          <Workouts
+            items={this.state.items}
+            deleteItem={this.deleteItem} />
+          <Dashboard
+            items={this.state.items}
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+            value={this.state.value} />
+
+        </div>
+
       </div>
     );
   }

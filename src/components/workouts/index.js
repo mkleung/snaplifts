@@ -1,12 +1,9 @@
 import React from "react";
-import "./items.scss";
+import "./workouts.scss";
 
-class Items extends React.Component {
+class Workouts extends React.Component {
   render() {
     const items = this.props.items;
-
-
-
     const listItems = items.map((item, index) => {
       const firstKey = `first-${index}`;
       const secondKey = `second-${index}`;
@@ -21,49 +18,41 @@ class Items extends React.Component {
           <div class="rep">
             <input type="checkbox" id={firstKey} name={firstKey} />
             <label htmlFor={firstKey} className="circle" />
-            <div className="checkmark" />
+
+            <svg width="50" height="48" viewBox="0 0 92 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 20L21 44L90 2.5" stroke="blue" stroke-width="5" />
+            </svg>
+
           </div>
           <div class="rep">
             <input type="checkbox" id={secondKey} name={secondKey} />
             <label htmlFor={secondKey} className="circle" />
-            <div className="checkmark" />
+
           </div>
           <div class="rep">
             <input type="checkbox" id={thirdKey} name={thirdKey} />
             <label htmlFor={thirdKey} className="circle" />
-            <div className="checkmark" />
+
           </div>
           <div class="rep">
             <input type="checkbox" id={fourthKey} name={fourthKey} />
             <label htmlFor={fourthKey} className="circle" />
-            <div className="checkmark" />
+
           </div>
           <div class="rep">
             <input type="checkbox" id={fifthKey} name={fifthKey} />
             <label htmlFor={fifthKey} className="circle" />
-            <div className="checkmark" />
+
           </div>
         </div>
       )
     })
 
-
-    // const listItems = items.map((item, index) => (
-    //     <li key={index}>
-    //       <input type="checkbox" id={index} name={index} />
-    //       <label className="item" htmlFor={index}>
-    //         {item.key}. {item.content}
-    //       </label>
-    //       <label htmlFor={index} className="circle" />
-    //       <div className="checkmark" />
-    //     </li>
-    // ));
-
     return (
-      <div className="body">
+      <div className="workouts">
         {listItems}
       </div>
     );
   }
 }
-export default Items;
+export default Workouts;
