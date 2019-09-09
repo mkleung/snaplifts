@@ -28,14 +28,16 @@ class Head extends React.Component {
           <div>Workout: {this.props.currentWorkout}</div>
           <div className="subtitle">{currentDate}</div>
         </div>
+        <div>
+          <input id="dashboard" type="radio" name="lifts" checked />
+          <input id="lifts" type="radio" name="lifts" />
+
+          <label className="label" for="dashboard"><i className="material-icons">directions_run</i></label>
+          <label className="label" for="lifts"><i className="material-icons">settings_applications</i></label>
 
 
+        </div>
 
-        <input id="dashboard" type="radio" name="lifts" checked />
-        <input id="lifts" type="radio" name="lifts" />
-
-        <label className="label" for="dashboard"><i className="material-icons">directions_run</i></label>
-        <label className="label" for="lifts"><i className="material-icons">settings_applications</i></label>
 
       </div>
     );

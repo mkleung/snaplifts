@@ -4,13 +4,21 @@
   border-bottom: 1px solid #CCC;
   text-align: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: row;
   align-items: center;
   height: 30%;
 
+  input {
+    display: none;
+  }
+
   label {
     cursor: pointer;
+  }
+
+  #lifts:checked~.dashboard {
+    display: block;
   }
 
   // .title {

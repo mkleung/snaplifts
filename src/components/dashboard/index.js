@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
             const fourthKey = `fourth-${index}`;
             const fifthKey = `fifth-${index}`;
             return (
-                <div className="set" key={index}>
+                <div className="dashboard set" key={index}>
                     <div className="rep">
                         {item.content}
                     </div>

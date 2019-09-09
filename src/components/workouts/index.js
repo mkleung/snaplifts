@@ -17,32 +17,49 @@ class Workouts extends React.Component {
           </div>
           <div class="rep">
             <input type="checkbox" id={firstKey} name={firstKey} />
-            <label htmlFor={firstKey} className="circle" />
-
-            <svg width="50" height="48" viewBox="0 0 92 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 20L21 44L90 2.5" stroke="blue" stroke-width="5" />
-            </svg>
-
+            <div className="explode"></div>
+            <label htmlFor={firstKey} className="circleLabel">
+              <svg className="checkmark" width="40" height="40" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 6L5.5 9.5L14.5 0.5" stroke="#FFF" />
+              </svg>
+            </label>
           </div>
           <div class="rep">
             <input type="checkbox" id={secondKey} name={secondKey} />
-            <label htmlFor={secondKey} className="circle" />
-
+            <div className="explode"></div>
+            <label htmlFor={secondKey} className="circleLabel" >
+              <svg className="checkmark" width="40" height="40" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 6L5.5 9.5L14.5 0.5" stroke="#FFF" />
+              </svg>
+            </label>
           </div>
           <div class="rep">
             <input type="checkbox" id={thirdKey} name={thirdKey} />
-            <label htmlFor={thirdKey} className="circle" />
-
+            <div className="explode"></div>
+            <label htmlFor={thirdKey} className="circleLabel">
+              <svg className="checkmark" width="40" height="40" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 6L5.5 9.5L14.5 0.5" stroke="#FFF" />
+              </svg>
+            </label>
           </div>
           <div class="rep">
             <input type="checkbox" id={fourthKey} name={fourthKey} />
-            <label htmlFor={fourthKey} className="circle" />
-
+            <div className="explode"></div>
+            <label htmlFor={fourthKey} className="circleLabel" >
+              <svg className="checkmark" width="40" height="40" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 6L5.5 9.5L14.5 0.5" stroke="#FFF" />
+              </svg>
+            </label>
           </div>
           <div class="rep">
             <input type="checkbox" id={fifthKey} name={fifthKey} />
-            <label htmlFor={fifthKey} className="circle" />
+            <div className="explode"></div>
+            <label htmlFor={fifthKey} className="circleLabel">
+              <svg className="checkmark" width="40" height="40" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 6L5.5 9.5L14.5 0.5" stroke="#FFF" />
+              </svg>
 
+            </label>
           </div>
         </div>
       )

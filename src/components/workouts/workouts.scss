@@ -25,16 +25,45 @@
       align-items: center;
       justify-content: center;
 
+      .explode {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        height: 60px;
+        width: 60px;
+        border: 3px solid red;
+        border-radius: 100%;
+        opacity: 1;
+        transition: .5s ease-in-out;
+        z-index: 0;
+      }
+
       input {
         display: none;
       }
 
-      input:checked~.circle {
+      input:checked~.circleLabel {
         background: red;
 
+        .checkmark {
+          // animation: dash 5s ease forwards;
+          transition: 1s ease;
+          stroke-dashoffset: 0;
+
+        }
       }
 
-      .circle {
+      input:checked~.explode {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+        transition: .5s ease-in-out;
+        z-index: 1;
+      }
+
+
+
+      .circleLabel {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -42,20 +71,29 @@
         width: 40px;
         border-radius: 50%;
         border: 3px solid red;
-        box-shadow: 0 0px 5px 0 red;
+        z-index: 10;
         transform: translate(-50%, -50%);
         background: transparent;
 
         &:hover {
           cursor: pointer;
-          background: red;
+
         }
+      }
+
+      .checkmark {
+        z-index: 3;
+        stroke-dasharray: 30px;
+        stroke-dashoffset: 30px;
+        transition: 1s ease;
+
       }
     }
   }
-
-
 }
+
+
+
 
 // ul {
 //   list-style-type: none;
