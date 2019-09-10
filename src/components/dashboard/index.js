@@ -11,46 +11,23 @@ class Dashboard extends React.Component {
             const fourthKey = `fourth-${index}`;
             const fifthKey = `fifth-${index}`;
             return (
-                <div className="dashboard set" key={index}>
-                    <div className="rep">
+                <div className="items" key={index}>
+                    <div className="title">
                         {item.content}
                     </div>
-                    <div class="rep">
-                        <input type="checkbox" id={firstKey} name={firstKey} />
-                        <label htmlFor={firstKey} className="circle" />
-                        <div className="checkmark" />
+                    <div className="control">
+                        <button>Edit</button>
+                        <button>Delete</button>
                     </div>
-                    <div class="rep">
-                        <input type="checkbox" id={secondKey} name={secondKey} />
-                        <label htmlFor={secondKey} className="circle" />
-                        <div className="checkmark" />
-                    </div>
-                    <div class="rep">
-                        <input type="checkbox" id={thirdKey} name={thirdKey} />
-                        <label htmlFor={thirdKey} className="circle" />
-                        <div className="checkmark" />
-                    </div>
-                    <div class="rep">
-                        <input type="checkbox" id={fourthKey} name={fourthKey} />
-                        <label htmlFor={fourthKey} className="circle" />
-                        <div className="checkmark" />
-                    </div>
-                    <div class="rep">
-                        <input type="checkbox" id={fifthKey} name={fifthKey} />
-                        <label htmlFor={fifthKey} className="circle" />
-                        <div className="checkmark" />
-                    </div>
+
                 </div>
             )
         })
 
 
         return (
-            <div>
-                <div className="dashboard">
-                    {listItems}
-                </div>
-
+            <div className="dashboard">
+                {listItems}
                 <Add handleChange={this.props.handleChange}
                     handleSubmit={this.props.handleSubmit}
                     value={this.props.value} />

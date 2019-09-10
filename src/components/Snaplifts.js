@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "./head";
 import Workouts from "./workouts";
-
+import Calendar from "./calendar";
 import Dashboard from "./dashboard";
 
 import "./snaplifts.scss";
@@ -10,30 +10,30 @@ class Snaplifts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "",
       count: 1,
+      active: "workout",
       currentWorkout: 'A',
       items: [
         { key: 1, content: "Squats", workout: "A" },
-        { key: 2, content: "Barbell Row", workout: "A" },
-        { key: 3, content: "Deadlift", workout: "B" },
-        { key: 4, content: "Shoulder Press", workout: "B" },
-        { key: 5, content: "Bench Press", workout: "C" },
-        { key: 6, content: "Arms", workout: "C" }
+        { key: 2, content: "Shoulder Press", workout: "A" },
+        { key: 3, content: "Biceps", workout: "A" },
+
+        { key: 4, content: "Bench Press", workout: "B" },
+        { key: 5, content: "Barbell Row", workout: "B" },
+        { key: 6, content: "Triceps", workout: "B" },
+
+        { key: 7, content: "Squats", workout: "C" },
+        { key: 8, content: "Deadlifts", workout: "C" },
+        { key: 9, content: "Abs", workout: "C" },
       ]
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleWorkoutChange = this.handleWorkoutChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
-
   handleSubmit(event) {
     event.preventDefault();
-
     var count = this.state.count + 1;
 
     var newItem = {
@@ -52,6 +52,16 @@ class Snaplifts extends React.Component {
     }
   }
 
+  setActive(event) {
+    this.setState({
+      active: event.target.value
+    })
+  }
+
+  handleWorkoutChange(event) {
+    this.setState({ currentWorkout: event.value });
+  }
+
   deleteItem(key) {
     var filteredItems = this.state.items.filter(function (item) {
       return item.key !== key;
@@ -65,17 +75,28 @@ class Snaplifts extends React.Component {
   render() {
     return (
       <div className="list">
-        <Head currentWorkout={this.state.currentWorkout} />
+        <Head setActive={this.setActive.bind(this)} handleWorkoutChange={this.handleWorkoutChange.bind(this)} currentWorkout={this.state.currentWorkout} />
         <div className="body">
 
-          <Workouts
-            items={this.state.items}
-            deleteItem={this.deleteItem} />
-          <Dashboard
-            items={this.state.items}
-            handleSubmit={this.handleSubmit}
-            handleChange={this.handleChange}
-            value={this.state.value} />
+          {this.state.active === "workout" &&
+            <Workouts
+              items={this.state.items}
+              deleteItem={this.deleteItem}
+              currentWorkout={this.state.currentWorkout} />
+          }
+
+          {this.state.active === "dashboard" &&
+            <Dashboard
+              items={this.state.items}
+              handleSubmit={this.handleSubmit}
+              handleChange={this.handleChange}
+              value={this.state.value} />
+          }
+
+          {this.state.active === "calendar" &&
+            <Calendar />
+          }
+
 
         </div>
 

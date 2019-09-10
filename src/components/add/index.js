@@ -3,7 +3,7 @@ import "./add.scss";
 class Add extends React.Component {
   render() {
     return (
-      <div className="add">
+      <div className="add item">
         <form onSubmit={this.props.handleSubmit}>
           <input
             name="newItem"
