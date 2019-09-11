@@ -4,7 +4,7 @@ import "./workouts.scss";
 class Workouts extends React.Component {
   render() {
 
-    var currentWorkouts = this.props.items.filter(item => item.workout == this.props.currentWorkout);
+    var currentWorkouts = this.props.items.filter(item => item.workout === this.props.currentWorkout);
 
     const listItems = currentWorkouts.map((item, index) => {
       const firstKey = `first-${index}`;
@@ -15,7 +15,7 @@ class Workouts extends React.Component {
       return (
         <div className="set" key={index}>
           <div className="title">
-            {item.content}
+            {item.key} - {item.content}
           </div>
           <div className="reps">
             <div className="rep">

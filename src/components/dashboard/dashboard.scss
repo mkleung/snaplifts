@@ -1,7 +1,7 @@
 .dashboard {
     padding: 20px 40px;
-    overflow-y: scroll;
-    height: 400px;
+
+    height: 100%;
 
     .items {
 
@@ -13,14 +13,31 @@
         flex-direction: row;
 
         .title {
-            align-self: flex-start;
+
             text-align: left;
         }
 
         .control {
-            align-self: flex-end;
-        }
+            button {
+                border: none;
+                padding: 5px 20px;
+                border: 2px solid red;
 
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .editButton {
+                background: #FFF;
+                color: black;
+            }
+
+            .deleteButton {
+                background: red;
+                color: #FFF;
+            }
+        }
 
     }
 }

@@ -41,18 +41,21 @@ class Head extends React.Component {
       <div className="head">
 
         <div className="title">
-          <h2>Snaplifts</h2>
+          <h2 className="logo">Snaplifts</h2>
           <div className="subtitle">{currentDate}</div>
         </div>
 
         <div className="title">
-
-          <Select
-            value={selectedOption}
-            onChange={this.props.handleWorkoutChange}
-            options={options}
-          />
+          {this.props.active === "workout" &&
+            <Select
+              value={selectedOption}
+              onChange={this.props.handleWorkoutChange}
+              options={options}
+            />
+          }
         </div>
+
+
 
         <div onChange={this.props.setActive}>
           <input id="radioWorkout" type="radio" value="workout" defaultChecked name="control" />

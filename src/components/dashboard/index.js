@@ -5,32 +5,27 @@ import "./dashboard.scss"
 class Dashboard extends React.Component {
     render() {
         const listItems = this.props.items.map((item, index) => {
-            const firstKey = `first-${index}`;
-            const secondKey = `second-${index}`;
-            const thirdKey = `third-${index}`;
-            const fourthKey = `fourth-${index}`;
-            const fifthKey = `fifth-${index}`;
             return (
                 <div className="items" key={index}>
                     <div className="title">
-                        {item.content}
+                        {item.key} - {item.content}  (Workout {item.workout})
                     </div>
                     <div className="control">
-                        <button>Edit</button>
-                        <button>Delete</button>
-                    </div>
-
-                </div>
+                        <button className="deleteButton" onClick={() => this.props.deleteItem(item.key)}>DELETE</button>
+                    </div >
+                </div >
             )
         })
-
-
         return (
-            <div className="dashboard">
+            <div className="dashboard" >
+
+                < Add changeAdd={this.props.changeAdd}
+                    submitAdd={this.props.submitAdd}
+                    value={this.props.value}
+                    selectAddValue={this.props.selectAddValue}
+                    selectAddChange={this.props.selectAddChange} />
                 {listItems}
-                <Add handleChange={this.props.handleChange}
-                    handleSubmit={this.props.handleSubmit}
-                    value={this.props.value} />
+
             </div>
         )
     }

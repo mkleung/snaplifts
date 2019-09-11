@@ -10,7 +10,9 @@ class Snaplifts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 1,
+      additem: '',
+      selectAddValue: 'A',
+      count: 9,
       active: "workout",
       currentWorkout: 'A',
       items: [
@@ -28,23 +30,36 @@ class Snaplifts extends React.Component {
       ]
     };
     this.handleWorkoutChange = this.handleWorkoutChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.changeAdd = this.changeAdd.bind(this);
+    this.submitAdd = this.submitAdd.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
+    this.selectAddChange = this.selectAddChange.bind(this);
   }
 
-  handleSubmit(event) {
+
+  changeAdd(event) {
+    this.setState({ additem: event.target.value });
+  }
+
+  selectAddChange(event) {
+    this.setState({
+      selectAddValue: event.value
+    })
+  }
+
+
+  submitAdd(event) {
     event.preventDefault();
     var count = this.state.count + 1;
-
     var newItem = {
       key: count,
-      content: this.state.value
+      content: this.state.additem,
+      workout: this.state.selectAddValue
     };
-
-    if (this.state.value !== "") {
+    if (this.state.additem !== "") {
       this.setState(prevState => {
         return {
-          value: "",
+          additem: "",
           count: count,
           items: prevState.items.concat(newItem)
         };
@@ -72,34 +87,45 @@ class Snaplifts extends React.Component {
       key: 0
     });
   }
+
+  editItem(item) {
+    console.log(item);
+  }
+
   render() {
     return (
       <div className="list">
-        <Head setActive={this.setActive.bind(this)} handleWorkoutChange={this.handleWorkoutChange.bind(this)} currentWorkout={this.state.currentWorkout} />
+        <Head
+          setActive={this.setActive.bind(this)}
+          handleWorkoutChange={this.handleWorkoutChange.bind(this)}
+          active={this.state.active}
+          currentWorkout={this.state.currentWorkout} />
         <div className="body">
 
           {this.state.active === "workout" &&
             <Workouts
               items={this.state.items}
-              deleteItem={this.deleteItem}
+
               currentWorkout={this.state.currentWorkout} />
           }
 
           {this.state.active === "dashboard" &&
             <Dashboard
               items={this.state.items}
-              handleSubmit={this.handleSubmit}
-              handleChange={this.handleChange}
-              value={this.state.value} />
+              submitAdd={this.submitAdd}
+              changeAdd={this.changeAdd}
+              value={this.state.value}
+              editItem={this.editItem}
+              deleteItem={this.deleteItem}
+              selectAddValue={this.state.selectAddValue}
+              selectAddChange={this.selectAddChange}
+            />
           }
 
           {this.state.active === "calendar" &&
             <Calendar />
           }
-
-
         </div>
-
       </div>
     );
   }
