@@ -39,9 +39,7 @@ class Head extends React.Component {
       } ${date.getDate()}, ${date.getFullYear()}`;
     return (
       <div className="head">
-
         <div className="title">
-          <h2 className="logo">Snaplifts</h2>
           <div className="subtitle">{currentDate}</div>
         </div>
 
@@ -57,19 +55,19 @@ class Head extends React.Component {
 
 
 
-        <div onChange={this.props.setActive}>
+        <div className="tabs" onChange={this.props.setActive}>
           <input id="radioWorkout" type="radio" value="workout" defaultChecked name="control" />
-          <label htmlFor="radioWorkout">
+          <label className="workoutLabel" htmlFor="radioWorkout">
             Workout
           </label>
 
           <input id="radioDashboard" type="radio" value="dashboard" name="control" />
-          <label htmlFor="radioDashboard">
+          <label className="dashboardLabel" htmlFor="radioDashboard">
             Dashboard
           </label>
 
           <input id="radioCalendar" type="radio" value="calendar" name="control" />
-          <label htmlFor="radioCalendar">
+          <label className="calendarLabel" htmlFor="radioCalendar">
             Calendar
           </label>
         </div>

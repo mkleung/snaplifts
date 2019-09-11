@@ -16,17 +16,17 @@ class Snaplifts extends React.Component {
       active: "workout",
       currentWorkout: 'A',
       items: [
-        { key: 1, content: "Squats", workout: "A" },
-        { key: 2, content: "Shoulder Press", workout: "A" },
-        { key: 3, content: "Biceps", workout: "A" },
+        { key: 1, title: "Squats", workout: "A", content: [] },
+        { key: 2, title: "Shoulder Press", workout: "A", content: [] },
+        { key: 3, title: "Biceps", workout: "A", content: [] },
 
-        { key: 4, content: "Bench Press", workout: "B" },
-        { key: 5, content: "Barbell Row", workout: "B" },
-        { key: 6, content: "Triceps", workout: "B" },
+        { key: 4, title: "Bench Press", workout: "B", content: [] },
+        { key: 5, title: "Barbell Row", workout: "B", content: [] },
+        { key: 6, title: "Triceps", workout: "B", content: [] },
 
-        { key: 7, content: "Squats", workout: "C" },
-        { key: 8, content: "Deadlifts", workout: "C" },
-        { key: 9, content: "Abs", workout: "C" },
+        { key: 7, title: "Squats", workout: "C", content: [] },
+        { key: 8, title: "Deadlifts", workout: "C", content: [] },
+        { key: 9, title: "Abs", workout: "C", content: [] },
       ]
     };
     this.handleWorkoutChange = this.handleWorkoutChange.bind(this);
@@ -53,7 +53,7 @@ class Snaplifts extends React.Component {
     var count = this.state.count + 1;
     var newItem = {
       key: count,
-      content: this.state.additem,
+      title: this.state.additem,
       workout: this.state.selectAddValue
     };
     if (this.state.additem !== "") {
@@ -100,33 +100,33 @@ class Snaplifts extends React.Component {
           handleWorkoutChange={this.handleWorkoutChange.bind(this)}
           active={this.state.active}
           currentWorkout={this.state.currentWorkout} />
-        <div className="body">
 
-          {this.state.active === "workout" &&
-            <Workouts
-              items={this.state.items}
 
-              currentWorkout={this.state.currentWorkout} />
-          }
+        {this.state.active === "workout" &&
+          <Workouts
+            items={this.state.items}
 
-          {this.state.active === "dashboard" &&
-            <Dashboard
-              items={this.state.items}
-              submitAdd={this.submitAdd}
-              changeAdd={this.changeAdd}
-              value={this.state.value}
-              editItem={this.editItem}
-              deleteItem={this.deleteItem}
-              selectAddValue={this.state.selectAddValue}
-              selectAddChange={this.selectAddChange}
-            />
-          }
+            currentWorkout={this.state.currentWorkout} />
+        }
 
-          {this.state.active === "calendar" &&
-            <Calendar />
-          }
-        </div>
+        {this.state.active === "dashboard" &&
+          <Dashboard
+            items={this.state.items}
+            submitAdd={this.submitAdd}
+            changeAdd={this.changeAdd}
+            value={this.state.value}
+            editItem={this.editItem}
+            deleteItem={this.deleteItem}
+            selectAddValue={this.state.selectAddValue}
+            selectAddChange={this.selectAddChange}
+          />
+        }
+
+        {this.state.active === "calendar" &&
+          <Calendar />
+        }
       </div>
+
     );
   }
 }

@@ -8,7 +8,7 @@ class Dashboard extends React.Component {
             return (
                 <div className="items" key={index}>
                     <div className="title">
-                        {item.key} - {item.content}  (Workout {item.workout})
+                        {item.key} - {item.title}  (Workout {item.workout}) - {item.content}
                     </div>
                     <div className="control">
                         <button className="deleteButton" onClick={() => this.props.deleteItem(item.key)}>DELETE</button>

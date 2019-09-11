@@ -1,13 +1,13 @@
 @import "../../variables.scss";
 
 .head {
-  border-bottom: 1px solid #CCC;
+
   text-align: center;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
   align-items: center;
-  height: 20%;
+  height: 80px;
 
   .title {
     width: 200px;
@@ -32,64 +32,103 @@
     flex-direction: row;
   }
 
+  #radioWorkout:checked~.workoutLabel {
+    background: #CCC;
+    color: black;
+  }
+
+  #radioDashboard:checked~.dashboardLabel {
+    background: #CCC;
+    color: black;
+  }
+
+  #radioCalendar:checked~.calendarLabel {
+    background: #CCC;
+    color: black;
+  }
+
   label {
     cursor: pointer;
     padding: 0 20px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    display: flex;
+
+
+    &:hover {
+      background: #CCC;
+      color: black;
+    }
+  }
+
+  input {
+    display: none;
   }
 
 
-  [type="radio"]:checked,
-  [type="radio"]:not(:checked) {
-    position: absolute;
-    left: -9999px;
+  .tabs {
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    display: flex;
+    padding-left: 20px;
   }
 
-  [type="radio"]:checked+label,
-  [type="radio"]:not(:checked)+label {
-    position: relative;
-    padding-left: 28px;
-    cursor: pointer;
-    line-height: 20px;
-    display: inline-block;
-    color: #666;
-  }
+  // [type="radio"]:checked,
+  // [type="radio"]:not(:checked) {
+  //   position: absolute;
+  //   left: -9999px;
+  // }
 
-  [type="radio"]:checked+label:before,
-  [type="radio"]:not(:checked)+label:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 18px;
-    height: 18px;
-    border: 1px solid #ddd;
-    border-radius: 100%;
-    background: #fff;
-  }
+  // [type="radio"]:checked+label,
+  // [type="radio"]:not(:checked)+label {
+  //   position: relative;
+  //   padding-left: 28px;
+  //   cursor: pointer;
+  //   line-height: 20px;
+  //   display: inline-block;
+  //   color: #666;
+  // }
 
-  [type="radio"]:checked+label:after,
-  [type="radio"]:not(:checked)+label:after {
-    content: '';
-    width: 12px;
-    height: 12px;
-    background: #F87DA9;
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    border-radius: 100%;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-  }
+  // [type="radio"]:checked+label:before,
+  // [type="radio"]:not(:checked)+label:before {
+  //   content: '';
+  //   position: absolute;
+  //   left: 0;
+  //   top: 0;
+  //   width: 18px;
+  //   height: 18px;
+  //   border: 1px solid #ddd;
+  //   border-radius: 100%;
+  //   background: #fff;
+  // }
 
-  [type="radio"]:not(:checked)+label:after {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
+  // [type="radio"]:checked+label:after,
+  // [type="radio"]:not(:checked)+label:after {
+  //   content: '';
+  //   width: 12px;
+  //   height: 12px;
+  //   background: #F87DA9;
+  //   position: absolute;
+  //   top: 4px;
+  //   left: 4px;
+  //   border-radius: 100%;
+  //   -webkit-transition: all 0.2s ease;
+  //   transition: all 0.2s ease;
+  // }
 
-  [type="radio"]:checked+label:after {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
+  // [type="radio"]:not(:checked)+label:after {
+  //   opacity: 0;
+  //   -webkit-transform: scale(0);
+  //   transform: scale(0);
+  // }
+
+  // [type="radio"]:checked+label:after {
+  //   opacity: 1;
+  //   -webkit-transform: scale(1);
+  //   transform: scale(1);
+  // }
 }

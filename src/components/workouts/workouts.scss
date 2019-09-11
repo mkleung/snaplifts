@@ -3,16 +3,27 @@
 
 
 .workouts {
-
+  background: #CCC;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100%;
+  justify-content: space-between;
+  border-radius: 0 0 10px 10px;
 
   .set {
-    padding: 10px 0;
+
+    background: #FFF;
+    margin: 10px 20px;
+    border-radius: 10px;
+
+    &:first-child {
+      margin-top: 20px;
+    }
+
+    &:last-child {
+      margin-bottom: 40px;
+    }
 
     .title {
       text-align: left;
@@ -24,6 +35,8 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+
+
 
       .rep {
         width: 50px;
@@ -70,8 +83,6 @@
           z-index: 1;
         }
 
-
-
         .circleLabel {
           position: absolute;
           top: 50%;
@@ -105,7 +116,7 @@
   }
 
   .finishButton {
-    padding-top: 0px;
+    margin: 20px;
 
     button {
       color: #FFF;
