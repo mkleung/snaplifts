@@ -13,36 +13,18 @@ const init = {
   count: 9,
   activeTab: "workout",
   currentWorkout: 'A',
-  workouts: {
-    "A": [
-      { key: 1, title: "Squats", content: [] },
-      { key: 2, title: "Shoulder Press", content: [] },
-      { key: 3, title: "Biceps", content: [] },
+  workouts:
+    [
+      { key: 1, workout: "A", title: "Squats", sets: [false, false, false, false, false] },
+      { key: 2, workout: "A", title: "Shoulder Press", sets: [false, false, false, false, false] },
+      { key: 3, workout: "A", title: "Biceps", sets: [false, false, false, false, false] },
+      { key: 4, workout: "B", title: "Bench Press", sets: [false, false, false, false, false] },
+      { key: 5, workout: "B", title: "Barbell Row", sets: [false, false, false, false, false] },
+      { key: 6, workout: "B", title: "Triceps", sets: [false, false, false, false, false] },
+      { key: 7, workout: "C", title: "Squats", sets: [false, false, false, false, false] },
+      { key: 8, workout: "C", title: "Deadlifts", sets: [false, false, false, false, false] },
+      { key: 9, workout: "C", title: "Abs", sets: [false, false, false, false, false] }
     ],
-    "B": [
-      { key: 4, title: "Bench Press", content: [] },
-      { key: 5, title: "Barbell Row", content: [] },
-      { key: 6, title: "Triceps", content: [] },
-    ],
-    "C": [
-      { key: 7, title: "Squats", workout: "C", content: [] },
-      { key: 8, title: "Deadlifts", workout: "C", content: [] },
-      { key: 9, title: "Abs", workout: "C", content: [] }
-    ]
-  },
-  items: [
-    { key: 1, title: "Squats", workout: "A", content: [] },
-    { key: 2, title: "Shoulder Press", workout: "A", content: [] },
-    { key: 3, title: "Biceps", workout: "A", content: [] },
-
-    { key: 4, title: "Bench Press", workout: "B", content: [] },
-    { key: 5, title: "Barbell Row", workout: "B", content: [] },
-    { key: 6, title: "Triceps", workout: "B", content: [] },
-
-    { key: 7, title: "Squats", workout: "C", content: [] },
-    { key: 8, title: "Deadlifts", workout: "C", content: [] },
-    { key: 9, title: "Abs", workout: "C", content: [] },
-  ]
 };
 
 class Snaplifts extends React.Component {
@@ -58,11 +40,6 @@ class Snaplifts extends React.Component {
   }
 
 
-
-  componentWillMount() {
-
-
-  }
 
   changeAdd(event) {
     this.setState({ additem: event.target.value });
@@ -134,14 +111,14 @@ class Snaplifts extends React.Component {
 
         {this.state.activeTab === "workout" &&
           <Workouts
-            items={this.state.items}
+            workouts={this.state.workouts}
             finish={this.finish}
             currentWorkout={this.state.currentWorkout} />
         }
-
+        {/* 
         {this.state.activeTab === "dashboard" &&
           <Dashboard
-            items={this.state.items}
+            workouts={this.state.workouts}
             submitAdd={this.submitAdd}
             changeAdd={this.changeAdd}
             value={this.state.value}
@@ -150,7 +127,7 @@ class Snaplifts extends React.Component {
             selectAddChange={this.selectAddChange}
             currentWorkout={this.state.currentWorkout}
           />
-        }
+        } */}
 
         {this.state.activeTab === "calendar" &&
           <Calendar />

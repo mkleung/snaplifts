@@ -4,11 +4,11 @@ import "./dashboard.scss"
 
 class Dashboard extends React.Component {
     render() {
-        const listItems = this.props.items.map((item, index) => {
+        const listWorkouts = this.props.workouts.map((item, index) => {
             return (
                 <div className="items" key={index}>
                     <div className="title">
-                        {item.key} - {item.title}  (Workout {item.workout}) - {item.content}
+                        {item.key} - {item.title}  (Workout {item.workout})
                     </div>
                     <div className="control">
                         <button className="deleteButton" onClick={() => this.props.deleteItem(item.key)}>DELETE</button>
@@ -19,7 +19,7 @@ class Dashboard extends React.Component {
         return (
             <div className="dashboard" >
 
-                {listItems}
+                {listWorkouts}
                 <hr />
                 <Add changeAdd={this.props.changeAdd}
                     submitAdd={this.props.submitAdd}
