@@ -9,6 +9,10 @@
 	padding-top: 40px;
 }
 
+.content {
+	min-height: 500px;
+}
+
 .list {
 	margin: 0 auto;
 	width: 80%;
@@ -23,11 +27,11 @@
 	align-items: center;
 
 
-	.body {
-		width: 100%;
-		height: auto;
-		padding-bottom: 40px;
-	}
+	// .body {
+	// 	width: 100%;
+	// 	height: auto;
+	// 	padding-bottom: 40px;
+	// }
 
 
 }

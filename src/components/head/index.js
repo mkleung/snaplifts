@@ -31,6 +31,11 @@ class Head extends React.Component {
 
   render() {
 
+    let activeTab = this.props.activeTab;
+    let workoutClass = activeTab === "workout" ? "active label" : "label";
+    let dashboardClass = activeTab === "dashboard" ? "active label" : "label";
+    let calendarClass = activeTab === "calendar" ? "active label" : "label";
+
     const selectedOption = { value: this.props.currentWorkout, label: `Workout ${this.props.currentWorkout}` };
 
     const date = new Date();
@@ -44,34 +49,26 @@ class Head extends React.Component {
         </div>
 
         <div className="title">
-          {this.props.activeTab === "workout" &&
+          {/* {this.props.activeTab === "workout" &&
             <Select
               value={selectedOption}
               onChange={this.props.handleWorkoutChange}
               options={options}
             />
-          }
+          } */}
+
+          {/* {activeTab} */}
         </div>
 
 
 
         <div className="tabs" onChange={this.props.setActiveTab}>
-          <input id="radioWorkout" type="radio" value="workout" defaultChecked name="control" />
-          <label className="workoutLabel" htmlFor="radioWorkout">
-            Workout
-          </label>
 
-          <input id="radioDashboard" type="radio" value="dashboard" name="control" />
-          <label className="dashboardLabel" htmlFor="radioDashboard">
-            Dashboard
-          </label>
+          <div className={workoutClass} onClick={() => this.props.selectTab("workout")}>Workout</div>
+          <div className={dashboardClass} onClick={() => this.props.selectTab("dashboard")}>Dashboard</div>
+          <div className={calendarClass} onClick={() => this.props.selectTab("calendar")}>Calendar</div>
 
-          <input id="radioCalendar" type="radio" value="calendar" name="control" />
-          <label className="calendarLabel" htmlFor="radioCalendar">
-            Calendar
-          </label>
         </div>
-
 
       </div>
     );

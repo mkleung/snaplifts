@@ -86,7 +86,7 @@ class Workouts extends React.Component {
     })
 
     return (
-      <div className="workouts">
+      <div className="workouts content">
         {listItems}
         <div className="finishButton">
           <button onClick={this.props.workoutFinish}>FINISH</button>

@@ -3,7 +3,7 @@ import Head from "./head";
 import Workouts from "./workouts";
 import Calendar from "./calendar";
 import Dashboard from "./dashboard";
-
+import Start from "./start"
 import "./snaplifts.scss";
 
 
@@ -30,7 +30,7 @@ class Snaplifts extends React.Component {
       additem: '',
       selectAddValue: 'A',
       count: 9,
-      activeTab: "workout",
+      activeTab: "start",
       currentWorkout: 'A',
       workouts: this.init,
       history: []
@@ -43,14 +43,6 @@ class Snaplifts extends React.Component {
   }
 
   componentDidMount() {
-    // let history = localStorage.getItem('snaplifts');
-    // let parsedHistory = JSON.parse(history);
-    // if (parsedHistory) {
-    //   this.setState({ parsedHistory })
-    // }
-    // console.log(typeof history)
-
-
     try {
       const json = localStorage.getItem('snaplifts');
       const history = JSON.parse(json);
@@ -63,8 +55,22 @@ class Snaplifts extends React.Component {
       }
     } catch (e) {
     }
-
   }
+
+  selectTab = (tab) => {
+    this.setState({
+      activeTab: tab,
+    })
+  }
+
+  /*
+  START */
+  startWorkout = () => {
+    this.setState({
+      activeTab: "workout"
+    })
+  }
+
 
   /*
   WORKOUT FUNCTIONS
@@ -175,12 +181,6 @@ class Snaplifts extends React.Component {
   }
 
 
-  setActiveTab(event) {
-    this.setState({
-      activeTab: event.target.value
-    })
-  }
-
   handleWorkoutChange(event) {
     this.setState({ currentWorkout: event.value });
   }
@@ -190,10 +190,15 @@ class Snaplifts extends React.Component {
     return (
       <div className="list">
         <Head
-          setActiveTab={this.setActiveTab.bind(this)}
+          selectTab={this.selectTab.bind(this)}
+
           handleWorkoutChange={this.handleWorkoutChange.bind(this)}
           activeTab={this.state.activeTab}
           currentWorkout={this.state.currentWorkout} />
+
+        {this.state.activeTab === "start" &&
+          <Start startWorkout={this.startWorkout} />
+        }
 
 
         {this.state.activeTab === "workout" &&
@@ -203,6 +208,7 @@ class Snaplifts extends React.Component {
             workoutToggle={this.workoutToggle.bind(this)}
             workoutFinish={this.workoutFinish.bind(this)} />
         }
+
         {/* 
         {this.state.activeTab === "dashboard" &&
           <Dashboard

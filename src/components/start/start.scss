@@ -1,0 +1,29 @@
+@import "../../variables.scss";
+
+.start {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 200px;
+
+        button {
+            border: none;
+            background: $red;
+            border-radius: 5px;
+            color: #FFF;
+            padding: 20px 40px;
+
+            &:hover {
+                cursor: pointer;
+                background: lighten($red, 10%);
+            }
+        }
+
+    }
+
+}
