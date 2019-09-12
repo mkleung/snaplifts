@@ -12,7 +12,7 @@ class Add extends React.Component {
   render() {
     let selectAddValue = { value: this.props.selectAddValue, label: `Workout ${this.props.selectAddValue}` }
     return (
-      <div className="add item">
+      <div className="add">
         <form onSubmit={this.props.submitAdd}>
           <input
             name="newItem"

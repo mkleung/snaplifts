@@ -1,6 +1,7 @@
-$red: #e74c3c;
+@import "../../variables.scss";
 
 .add {
+  width: 90%;
 
   form {
     display: flex;
@@ -16,7 +17,7 @@ $red: #e74c3c;
       text-align: left;
       margin: 10px 0;
       padding: 0 10px;
-      border-radius: 0 0 5px 5px;
+      border-radius: 5px;
       box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.3);
       font-style: italic;
 

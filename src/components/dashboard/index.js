@@ -19,13 +19,13 @@ class Dashboard extends React.Component {
         return (
             <div className="dashboard" >
 
-                < Add changeAdd={this.props.changeAdd}
+                {listItems}
+                <hr />
+                <Add changeAdd={this.props.changeAdd}
                     submitAdd={this.props.submitAdd}
                     value={this.props.value}
                     selectAddValue={this.props.selectAddValue}
                     selectAddChange={this.props.selectAddChange} />
-                {listItems}
-
             </div>
         )
     }

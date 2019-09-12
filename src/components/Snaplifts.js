@@ -6,29 +6,50 @@ import Dashboard from "./dashboard";
 
 import "./snaplifts.scss";
 
+const init = {
+  user: 'mike',
+  additem: '',
+  selectAddValue: 'A',
+  count: 9,
+  activeTab: "workout",
+  currentWorkout: 'A',
+  workouts: {
+    "A": [
+      { key: 1, title: "Squats", content: [] },
+      { key: 2, title: "Shoulder Press", content: [] },
+      { key: 3, title: "Biceps", content: [] },
+    ],
+    "B": [
+      { key: 4, title: "Bench Press", content: [] },
+      { key: 5, title: "Barbell Row", content: [] },
+      { key: 6, title: "Triceps", content: [] },
+    ],
+    "C": [
+      { key: 7, title: "Squats", workout: "C", content: [] },
+      { key: 8, title: "Deadlifts", workout: "C", content: [] },
+      { key: 9, title: "Abs", workout: "C", content: [] }
+    ]
+  },
+  items: [
+    { key: 1, title: "Squats", workout: "A", content: [] },
+    { key: 2, title: "Shoulder Press", workout: "A", content: [] },
+    { key: 3, title: "Biceps", workout: "A", content: [] },
+
+    { key: 4, title: "Bench Press", workout: "B", content: [] },
+    { key: 5, title: "Barbell Row", workout: "B", content: [] },
+    { key: 6, title: "Triceps", workout: "B", content: [] },
+
+    { key: 7, title: "Squats", workout: "C", content: [] },
+    { key: 8, title: "Deadlifts", workout: "C", content: [] },
+    { key: 9, title: "Abs", workout: "C", content: [] },
+  ]
+};
+
 class Snaplifts extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      additem: '',
-      selectAddValue: 'A',
-      count: 9,
-      active: "workout",
-      currentWorkout: 'A',
-      items: [
-        { key: 1, title: "Squats", workout: "A", content: [] },
-        { key: 2, title: "Shoulder Press", workout: "A", content: [] },
-        { key: 3, title: "Biceps", workout: "A", content: [] },
 
-        { key: 4, title: "Bench Press", workout: "B", content: [] },
-        { key: 5, title: "Barbell Row", workout: "B", content: [] },
-        { key: 6, title: "Triceps", workout: "B", content: [] },
-
-        { key: 7, title: "Squats", workout: "C", content: [] },
-        { key: 8, title: "Deadlifts", workout: "C", content: [] },
-        { key: 9, title: "Abs", workout: "C", content: [] },
-      ]
-    };
+    this.state = init;
     this.handleWorkoutChange = this.handleWorkoutChange.bind(this);
     this.changeAdd = this.changeAdd.bind(this);
     this.submitAdd = this.submitAdd.bind(this);
@@ -36,6 +57,12 @@ class Snaplifts extends React.Component {
     this.selectAddChange = this.selectAddChange.bind(this);
   }
 
+
+
+  componentWillMount() {
+
+
+  }
 
   changeAdd(event) {
     this.setState({ additem: event.target.value });
@@ -67,9 +94,9 @@ class Snaplifts extends React.Component {
     }
   }
 
-  setActive(event) {
+  setActiveTab(event) {
     this.setState({
-      active: event.target.value
+      activeTab: event.target.value
     })
   }
 
@@ -88,41 +115,44 @@ class Snaplifts extends React.Component {
     });
   }
 
-  editItem(item) {
-    console.log(item);
+  finish = (data) => {
+
+    const workouts = data;
+    console.log(workouts);
+
   }
 
   render() {
     return (
       <div className="list">
         <Head
-          setActive={this.setActive.bind(this)}
+          setActiveTab={this.setActiveTab.bind(this)}
           handleWorkoutChange={this.handleWorkoutChange.bind(this)}
-          active={this.state.active}
+          activeTab={this.state.activeTab}
           currentWorkout={this.state.currentWorkout} />
 
 
-        {this.state.active === "workout" &&
+        {this.state.activeTab === "workout" &&
           <Workouts
             items={this.state.items}
-
+            finish={this.finish}
             currentWorkout={this.state.currentWorkout} />
         }
 
-        {this.state.active === "dashboard" &&
+        {this.state.activeTab === "dashboard" &&
           <Dashboard
             items={this.state.items}
             submitAdd={this.submitAdd}
             changeAdd={this.changeAdd}
             value={this.state.value}
-            editItem={this.editItem}
             deleteItem={this.deleteItem}
             selectAddValue={this.state.selectAddValue}
             selectAddChange={this.selectAddChange}
+            currentWorkout={this.state.currentWorkout}
           />
         }
 
-        {this.state.active === "calendar" &&
+        {this.state.activeTab === "calendar" &&
           <Calendar />
         }
       </div>

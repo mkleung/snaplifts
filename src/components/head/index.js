@@ -44,7 +44,7 @@ class Head extends React.Component {
         </div>
 
         <div className="title">
-          {this.props.active === "workout" &&
+          {this.props.activeTab === "workout" &&
             <Select
               value={selectedOption}
               onChange={this.props.handleWorkoutChange}
@@ -55,7 +55,7 @@ class Head extends React.Component {
 
 
 
-        <div className="tabs" onChange={this.props.setActive}>
+        <div className="tabs" onChange={this.props.setActiveTab}>
           <input id="radioWorkout" type="radio" value="workout" defaultChecked name="control" />
           <label className="workoutLabel" htmlFor="radioWorkout">
             Workout

@@ -6,14 +6,31 @@ class Workouts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      workouts: [
-        [false, true, true, false, true],
-        [true, true, true, false, false],
-        [false, true, true, false, true],
-      ]
+      workouts: null
     };
 
+
   }
+
+  componentWillMount() {
+
+    const items = this.props.items;
+    const currentWorkout = this.props.currentWorkout;
+    let currentWorkouts = [];
+
+    for (let i = 0; i < items.length; i++) {
+      let item = items[i];
+
+      if (item.workout === currentWorkout) {
+        currentWorkouts.push([false, false, false, false, false])
+      }
+    }
+
+    this.setState({
+      workouts: currentWorkouts
+    })
+  }
+
   toggleChange = (row, column) => {
 
     let workouts = this.state.workouts;
@@ -24,9 +41,8 @@ class Workouts extends React.Component {
     });
   }
 
-  finish = () => {
-    alert(JSON.stringify(this.state.workouts));
-  }
+
+
   render() {
 
     var currentWorkouts = this.props.items.filter(item => item.workout === this.props.currentWorkout);
@@ -106,10 +122,11 @@ class Workouts extends React.Component {
 
     return (
       <div className="workouts">
+        <div>{this.props.currentWorkout}</div>
         {listItems}
 
         <div className="finishButton">
-          <button onClick={this.finish}>FINISH</button>
+          <button onClick={() => this.props.finish(this.state.workouts)}>FINISH</button>
         </div>
 
       </div>
