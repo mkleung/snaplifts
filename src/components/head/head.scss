@@ -5,7 +5,7 @@
 }
 
 .head {
-
+  width: 100%;
   text-align: center;
   display: flex;
   justify-content: space-around;
@@ -16,15 +16,16 @@
   .title {
     width: 200px;
 
-    button {
+    .logo {
       text-align: left;
-
+      font-size: 1.5em;
       background: transparent;
       border: none;
       text-transform: uppercase;
       font-weight: bold;
       height: 50px;
       width: 100%;
+      margin: 20px;
 
       &:hover {
         color: $red;

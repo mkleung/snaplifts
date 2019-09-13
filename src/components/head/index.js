@@ -10,18 +10,18 @@ const options = [
 ];
 
 const monthNames = [
-  "January",
-  "February",
-  "March",
-  "April",
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
   "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December"
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec"
 ];
 
 class Head extends React.Component {
@@ -47,8 +47,11 @@ class Head extends React.Component {
     return (
       <div className="head">
         <div className="title">
-          <button onClick={() => this.props.selectTab("start")}>SnapLifts</button>
-          {/* <div className="subtitle">{currentDate}</div> */}
+          <button className="logo" onClick={() => this.props.selectTab("start")}>SnapLifts</button>
+        </div>
+
+        <div className="title">
+          <div>{currentDate}</div>
         </div>
 
         <div className="title">
@@ -59,8 +62,6 @@ class Head extends React.Component {
               options={options}
             />
           }
-
-          {/* {activeTab} */}
         </div>
 
 
@@ -73,7 +74,7 @@ class Head extends React.Component {
 
         </div>
 
-      </div>
+      </div >
     );
   }
 }

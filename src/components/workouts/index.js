@@ -3,14 +3,10 @@ import "./workouts.scss";
 
 class Workouts extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
 
     let currentWorkouts = this.props.workouts.filter(item => item.workout === this.props.currentWorkout);
-    let current = this.props.currentWorkout;
+
 
     const listItems = currentWorkouts.map((item, index) => {
       const firstKey = `first-${index}`;

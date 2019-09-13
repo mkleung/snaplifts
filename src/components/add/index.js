@@ -22,11 +22,11 @@ class Add extends React.Component {
             ref="input"
           />
 
-          {/* <Select
+          <Select
             options={options}
             onChange={this.props.addSelectChange}
             value=""
-          /> */}
+          />
 
         </form>
       </React.Fragment>

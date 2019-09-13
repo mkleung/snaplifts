@@ -99,20 +99,20 @@ class Snaplifts extends React.Component {
   workoutFinish = () => {
 
     // CALCULATE REP COMPLETE
-    let current = this.state.currentWorkout;
+
     let workouts = this.state.workouts;
     let repComplete = 0;
     let totalReps = 0;
     let currentWorkouts = this.state.workouts.filter(item => item.workout === this.state.currentWorkout);
     currentWorkouts.map((item) => {
       let sets = item.sets;
-
       sets.map(rep => {
         if (rep) {
           repComplete++;
         }
         totalReps++;
       })
+
     });
     let result = repComplete / totalReps;
 
@@ -147,11 +147,18 @@ class Snaplifts extends React.Component {
     });
   }
 
-  handleSubmit(textInputValue) {
-    // The callback passed to the child component will
-    // submit the data back to it's parent.
-    // Logic to post to localhost:8080/
-    console.log(textInputValue)
+  handleSubmit(addWorkoutInput, addWorkoutSelect) {
+
+    let workouts = this.state.workouts;
+    let lastItem = workouts[workouts.length - 1];
+
+    let workout = { key: lastItem.key + 1, workout: addWorkoutSelect, title: addWorkoutInput, sets: [false, false, false, false, false] }
+    workouts.push(workout);
+
+    this.setState({
+      workouts: workouts
+    })
+
   }
 
 
