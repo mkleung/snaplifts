@@ -27,19 +27,14 @@ class Snaplifts extends React.Component {
 
     this.state = {
       user: 'mike',
-      additem: '',
-      selectAddValue: 'A',
       count: 9,
       activeTab: "start",
       currentWorkout: 'A',
       workouts: this.init,
       history: []
     };
-    this.handleWorkoutChange = this.handleWorkoutChange.bind(this);
-    this.changeAdd = this.changeAdd.bind(this);
-    this.submitAdd = this.submitAdd.bind(this);
-    this.deleteItem = this.deleteItem.bind(this);
-    this.selectAddChange = this.selectAddChange.bind(this);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -57,6 +52,12 @@ class Snaplifts extends React.Component {
     }
   }
 
+  /* HEAD */
+
+  handleWorkoutChange(event) {
+    this.setState({ currentWorkout: event.value });
+  }
+
   selectTab = (tab) => {
     this.setState({
       activeTab: tab,
@@ -65,9 +66,11 @@ class Snaplifts extends React.Component {
 
   /*
   START */
-  startWorkout = () => {
+  startWorkout = (selectedWorkout) => {
+    console.log(selectedWorkout)
     this.setState({
-      activeTab: "workout"
+      activeTab: "workout",
+      currentWorkout: selectedWorkout
     })
   }
 
@@ -94,8 +97,6 @@ class Snaplifts extends React.Component {
 
 
   workoutFinish = () => {
-
-    console.log("finish");
 
     // CALCULATE REP COMPLETE
     let current = this.state.currentWorkout;
@@ -137,53 +138,22 @@ class Snaplifts extends React.Component {
   /*
   DASHBOARD FUNCTIONS
   */
-
-  changeAdd(event) {
-    this.setState({ additem: event.target.value });
-  }
-
-  selectAddChange(event) {
-    this.setState({
-      selectAddValue: event.value
-    })
-  }
-
-
-  submitAdd(event) {
-    event.preventDefault();
-    var count = this.state.count + 1;
-    var newItem = {
-      key: count,
-      title: this.state.additem,
-      workout: this.state.selectAddValue
-    };
-    if (this.state.additem !== "") {
-      this.setState(prevState => {
-        return {
-          additem: "",
-          count: count,
-          items: prevState.items.concat(newItem)
-        };
-      });
-    }
-  }
-
-
   deleteItem(key) {
-    var filteredItems = this.state.items.filter(function (item) {
+    var filteredWorkouts = this.state.workouts.filter(function (item) {
       return item.key !== key;
     });
-
     this.setState({
-      items: filteredItems,
-      key: 0
+      workouts: filteredWorkouts
     });
   }
 
-
-  handleWorkoutChange(event) {
-    this.setState({ currentWorkout: event.value });
+  handleSubmit(textInputValue) {
+    // The callback passed to the child component will
+    // submit the data back to it's parent.
+    // Logic to post to localhost:8080/
+    console.log(textInputValue)
   }
+
 
 
   render() {
@@ -191,7 +161,6 @@ class Snaplifts extends React.Component {
       <div className="list">
         <Head
           selectTab={this.selectTab.bind(this)}
-
           handleWorkoutChange={this.handleWorkoutChange.bind(this)}
           activeTab={this.state.activeTab}
           currentWorkout={this.state.currentWorkout} />
@@ -209,19 +178,15 @@ class Snaplifts extends React.Component {
             workoutFinish={this.workoutFinish.bind(this)} />
         }
 
-        {/* 
+
         {this.state.activeTab === "dashboard" &&
           <Dashboard
             workouts={this.state.workouts}
-            submitAdd={this.submitAdd}
-            changeAdd={this.changeAdd}
-            value={this.state.value}
             deleteItem={this.deleteItem}
-            selectAddValue={this.state.selectAddValue}
-            selectAddChange={this.selectAddChange}
             currentWorkout={this.state.currentWorkout}
+            handleSubmitButton={this.handleSubmit}
           />
-        } */}
+        }
 
         {this.state.activeTab === "calendar" &&
           <Calendar history={this.state.history} />

@@ -1,14 +1,16 @@
 @import "../../variables.scss";
 
-.add {
-  width: 90%;
+.addList {
+  width: 100%;
+  margin-top: 10px;
 
   form {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
+    padding: 0 10px;
 
     .add__input {
       border: none;
@@ -17,9 +19,9 @@
       text-align: left;
       margin: 10px 0;
       padding: 0 10px;
-      border-radius: 5px;
-      box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.3);
+
       font-style: italic;
+      margin-right: 10px;
 
       &:focus {
         cursor: pointer;
@@ -31,13 +33,13 @@
 
       .css-yk16xz-control {
         height: 50px;
-        box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.3);
+
       }
     }
 
     .add__button {
       height: 50px;
-      flex-basis: 200px;
+      flex-basis: 50px;
       background: $red;
       border: none;
       border-radius: 5px;
@@ -45,6 +47,7 @@
       color: #FFF;
       transition: .5s ease;
       text-transform: uppercase;
+      margin-right: 10px;
 
       &:hover {
         cursor: pointer;

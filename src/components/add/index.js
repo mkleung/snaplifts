@@ -10,26 +10,26 @@ const options = [
 
 class Add extends React.Component {
   render() {
-    let selectAddValue = { value: this.props.selectAddValue, label: `Workout ${this.props.selectAddValue}` }
+    // let selectAddValue = { value: this.props.selectAddValue, label: `Workout ${this.props.selectAddValue}` }
     return (
-      <div className="add">
+      <React.Fragment>
         <form onSubmit={this.props.submitAdd}>
+          <button type="submit" className="add__button"><i className="material-icons">add</i></button>
           <input
             name="newItem"
             className="add__input"
             placeholder="New item"
-            value={this.props.value}
-            onChange={this.props.changeAdd}
+            ref="input"
           />
 
-          <Select
+          {/* <Select
             options={options}
-            onChange={this.props.selectAddChange}
-            value={selectAddValue}
-          />
-          <button type="submit" className="add__button">Add</button>
+            onChange={this.props.addSelectChange}
+            value=""
+          /> */}
+
         </form>
-      </div>
+      </React.Fragment>
     );
   }
 }

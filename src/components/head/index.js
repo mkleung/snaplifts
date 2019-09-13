@@ -31,8 +31,10 @@ class Head extends React.Component {
 
   render() {
 
+
     let activeTab = this.props.activeTab;
-    let workoutClass = activeTab === "workout" ? "active label" : "label";
+    let hidden = activeTab === "start" ? "hidden" : "";
+    let workoutClass = activeTab === "workout" ? "active label" : `${hidden} label`;
     let dashboardClass = activeTab === "dashboard" ? "active label" : "label";
     let calendarClass = activeTab === "calendar" ? "active label" : "label";
 
@@ -41,21 +43,22 @@ class Head extends React.Component {
     const date = new Date();
     const currentDate = `${
       monthNames[date.getMonth()]
-      } ${date.getDate()}, ${date.getFullYear()}`;
+      } ${date.getDate()}, ${date.getFullYear()} `;
     return (
       <div className="head">
         <div className="title">
-          <div className="subtitle">{currentDate}</div>
+          <button onClick={() => this.props.selectTab("start")}>SnapLifts</button>
+          {/* <div className="subtitle">{currentDate}</div> */}
         </div>
 
         <div className="title">
-          {/* {this.props.activeTab === "workout" &&
+          {this.props.activeTab === "workout" &&
             <Select
               value={selectedOption}
               onChange={this.props.handleWorkoutChange}
               options={options}
             />
-          } */}
+          }
 
           {/* {activeTab} */}
         </div>

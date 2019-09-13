@@ -1,5 +1,9 @@
 @import "../../variables.scss";
 
+.hidden {
+  visibility: hidden;
+}
+
 .head {
 
   text-align: center;
@@ -11,6 +15,22 @@
 
   .title {
     width: 200px;
+
+    button {
+      text-align: left;
+
+      background: transparent;
+      border: none;
+      text-transform: uppercase;
+      font-weight: bold;
+      height: 50px;
+      width: 100%;
+
+      &:hover {
+        color: $red;
+        cursor: pointer;
+      }
+    }
 
     .subtitle {
       padding-bottom: 0;

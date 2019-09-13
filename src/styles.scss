@@ -1,9 +1,10 @@
 @import "./variables.scss";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
 .App {
   font-family: sans-serif;
   text-align: center;
-  min-height: 100vh;
+  min-height: 110vh;
   background: linear-gradient($red, #FFF);
   background: $red;
   font-family: 'Roboto', sans-serif;
