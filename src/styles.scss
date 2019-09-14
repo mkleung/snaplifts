@@ -1,12 +1,14 @@
 @import "./variables.scss";
 
 .App {
-  font-family: sans-serif;
-  text-align: center;
-  min-height: 110vh;
-  background: linear-gradient($red, #FFF);
-  background: $red;
-  font-family: 'Roboto', sans-serif;
+  background: #CCC;
+  font-family: 'Roboto',
+    sans-serif;
+  min-height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 body {

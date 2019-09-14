@@ -1,13 +1,40 @@
 @import "../../variables.scss";
 
+
+.grid {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 119px;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+
+    .square {
+
+        height: 15px;
+        width: 15px;
+        background: #CCC;
+        border: 1px solid #FFF;
+    }
+
+}
+
+
+
 .calendar {
-    background: #CCC;
+    margin-top: 100px;
+    background: #FFF;
     width: 100%;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-radius: 0 0 10px 10px;
+    align-items: center;
+    border-radius: 10px;
+    height: 500px;
 
     .history {
         display: flex;

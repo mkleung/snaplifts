@@ -5,9 +5,21 @@ import "./calendar.scss"
 class Calendar extends React.Component {
     render() {
 
+        var squares = [];
+        for (var i = 0; i < 365; i++) {
+            squares.push("");
+        }
+
         return (
             <div className="calendar content">
                 <h1>Calendar</h1>
+
+                <div class="grid">
+                    {squares.map(() => {
+                        return <div className="square"></div>
+                    })}
+                </div>
+
                 <div className="history">
                     {this.props.history.map((item, index) => {
                         let result = item.result;
@@ -34,13 +46,16 @@ class Calendar extends React.Component {
                             default:
                                 break;
                         }
-                        return (
-                            <div className={colorClass} key={index}>
-                                <div className="tooltip">
-                                    {item.date}
-                                </div>
-                            </div>
 
+                        return (
+                            <React.Fragment>
+                                {/* <div className={colorClass} key={index}>
+                                    <div className="tooltip">
+                                        {item.date}
+                                    </div>
+                                </div> */}
+
+                            </React.Fragment>
                         )
                     })
                     }

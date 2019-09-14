@@ -1,28 +1,26 @@
 @import "../../variables.scss";
 
 .start {
+    background: #FFF;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    text-align: center;
+    padding: 40px 80px;
+
+
+    .title {
+        text-align: center;
+        font-size: 2em;
+    }
 
     .buttons {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 200px;
-
-        button {
-            border: none;
-            background: $red;
-            border-radius: 5px;
-            color: #FFF;
-            padding: 20px 40px;
-
-            &:hover {
-                cursor: pointer;
-                background: lighten($red, 10%);
-            }
-        }
+        align-items: center;
+        height: 300px;
 
     }
 

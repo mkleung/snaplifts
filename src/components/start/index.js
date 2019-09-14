@@ -4,15 +4,14 @@ import React from 'react'
 class Start extends React.Component {
     render() {
         return (
-            <div className="content start">
-                <h1>Start Workout</h1>
+            <div className="start">
+                <h3>Workout Tracker</h3>
                 <div className="buttons">
-                    <button onClick={() => this.props.startWorkout("A")}>Workout A</button>
-                    <button onClick={() => this.props.startWorkout("B")}>Workout B</button>
-                    <button onClick={() => this.props.startWorkout("C")}>Workout C</button>
+                    <button className="waves-effect waves-light btn-large red" onClick={() => this.props.startWorkout("A")}>Workout A</button>
+                    <button className="waves-effect waves-light btn-large red" onClick={() => this.props.startWorkout("B")}>Workout B</button>
+                    <button className="waves-effect waves-light btn-large red" onClick={() => this.props.startWorkout("C")}>Workout C</button>
+                    <button className="waves-effect waves-light btn-large btn-flat" onClick={() => { localStorage.clear(); }}>Clear</button>
                 </div>
-                <br /><br />
-                <button onClick={() => { localStorage.clear(); }}>Clear Local Storage</button>
             </div>
         )
     }

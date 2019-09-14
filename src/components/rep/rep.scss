@@ -1,0 +1,64 @@
+    .rep {
+        width: 50px;
+        height: 50px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        input {
+            // display: none;
+            z-index: 999;
+            opacity: 1;
+        }
+
+        input:checked~.circleLabel {
+            background: red;
+            border: 2px solid red;
+
+            .checkmark {
+                // animation: dash 5s ease forwards;
+                transition: 1s ease;
+                stroke-dashoffset: 0;
+
+            }
+        }
+
+        input:checked~.explode {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(1);
+            transition: .5s ease-in-out;
+            z-index: 1;
+        }
+
+        .circleLabel {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            border: 3px solid #CCC;
+            z-index: 10;
+            transform: translate(-50%, -50%);
+            background: #CCC;
+
+            &:hover {
+                cursor: pointer;
+
+            }
+        }
+
+        .checkmark {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 25px;
+            height: 25px;
+            z-index: 3;
+            stroke-dasharray: 30px;
+            stroke-dashoffset: 30px;
+            transition: 1s ease;
+        }
+    }

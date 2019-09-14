@@ -4,9 +4,23 @@ import Workouts from "./workouts";
 import Calendar from "./calendar";
 import Dashboard from "./dashboard";
 import Start from "./start"
+
 import "./snaplifts.scss";
 
-
+const monthNames = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec"
+];
 class Snaplifts extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +37,6 @@ class Snaplifts extends React.Component {
         { key: 8, workout: "C", title: "Deadlifts", sets: [false, false, false, false, false] },
         { key: 9, workout: "C", title: "Abs", sets: [false, false, false, false, false] }
       ];
-
 
     this.state = {
       user: 'mike',
@@ -53,7 +66,6 @@ class Snaplifts extends React.Component {
   }
 
   /* HEAD */
-
   handleWorkoutChange(event) {
     this.setState({ currentWorkout: event.value });
   }
@@ -74,14 +86,11 @@ class Snaplifts extends React.Component {
     })
   }
 
-
   /*
   WORKOUT FUNCTIONS
   */
   workoutToggle = (id, column) => {
-
     let workouts = this.state.workouts;
-
     for (let i = 0; i < workouts.length; i++) {
       let workout = workouts[i];
       if (workout.key === id) {
@@ -89,7 +98,6 @@ class Snaplifts extends React.Component {
         sets[column] = !sets[column];
       }
     }
-
     this.setState({
       workouts: workouts
     })
@@ -99,7 +107,6 @@ class Snaplifts extends React.Component {
   workoutFinish = () => {
 
     // CALCULATE REP COMPLETE
-
     let workouts = this.state.workouts;
     let repComplete = 0;
     let totalReps = 0;
@@ -112,7 +119,6 @@ class Snaplifts extends React.Component {
         }
         totalReps++;
       })
-
     });
     let result = repComplete / totalReps;
 
@@ -123,7 +129,6 @@ class Snaplifts extends React.Component {
     history.push({ user: "mike", date: formatted_date, result: result })
     const json = JSON.stringify(this.state.history);
     localStorage.setItem('snaplifts', json);
-
 
     // CLEAR
     for (const workout of workouts) {
@@ -138,7 +143,7 @@ class Snaplifts extends React.Component {
   /*
   DASHBOARD FUNCTIONS
   */
-  deleteItem(key) {
+  deleteItem = (key) => {
     var filteredWorkouts = this.state.workouts.filter(function (item) {
       return item.key !== key;
     });
@@ -148,58 +153,53 @@ class Snaplifts extends React.Component {
   }
 
   handleSubmit(addWorkoutInput, addWorkoutSelect) {
-
     let workouts = this.state.workouts;
     let lastItem = workouts[workouts.length - 1];
-
     let workout = { key: lastItem.key + 1, workout: addWorkoutSelect, title: addWorkoutInput, sets: [false, false, false, false, false] }
     workouts.push(workout);
-
     this.setState({
       workouts: workouts
     })
 
   }
 
-
-
   render() {
+    const currentDate = `${
+      monthNames[new Date().getMonth()]
+      } ${new Date().getDate()}, ${new Date().getFullYear()} `;
     return (
-      <div className="list">
+      <React.Fragment>
         <Head
           selectTab={this.selectTab.bind(this)}
           handleWorkoutChange={this.handleWorkoutChange.bind(this)}
           activeTab={this.state.activeTab}
           currentWorkout={this.state.currentWorkout} />
+        <div className="currentDate">{currentDate}</div>
+        <div className="container">
+          {this.state.activeTab === "start" &&
+            <Start startWorkout={this.startWorkout} />
+          }
+          {this.state.activeTab === "workout" &&
+            <Workouts
+              workouts={this.state.workouts}
+              currentWorkout={this.state.currentWorkout}
+              workoutToggle={this.workoutToggle.bind(this)}
+              workoutFinish={this.workoutFinish.bind(this)} />
+          }
+          {this.state.activeTab === "dashboard" &&
+            <Dashboard
+              workouts={this.state.workouts}
+              deleteItem={this.deleteItem}
+              currentWorkout={this.state.currentWorkout}
+              handleSubmitButton={this.handleSubmit}
+            />
+          }
+          {this.state.activeTab === "calendar" &&
+            <Calendar history={this.state.history} />
+          }
+        </div>
 
-        {this.state.activeTab === "start" &&
-          <Start startWorkout={this.startWorkout} />
-        }
-
-
-        {this.state.activeTab === "workout" &&
-          <Workouts
-            workouts={this.state.workouts}
-            currentWorkout={this.state.currentWorkout}
-            workoutToggle={this.workoutToggle.bind(this)}
-            workoutFinish={this.workoutFinish.bind(this)} />
-        }
-
-
-        {this.state.activeTab === "dashboard" &&
-          <Dashboard
-            workouts={this.state.workouts}
-            deleteItem={this.deleteItem}
-            currentWorkout={this.state.currentWorkout}
-            handleSubmitButton={this.handleSubmit}
-          />
-        }
-
-        {this.state.activeTab === "calendar" &&
-          <Calendar history={this.state.history} />
-        }
-      </div>
-
+      </React.Fragment>
     );
   }
 }

@@ -1,111 +1,124 @@
 @import "../../variables.scss";
 
-.hidden {
-  visibility: hidden;
-}
 
-.head {
-  width: 100%;
-  text-align: center;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  align-items: center;
-  height: 80px;
+.brand-logo {
+  padding: 0 20px !important;
 
-  .title {
-    width: 200px;
-
-    .logo {
-      text-align: left;
-      font-size: 1.5em;
-      background: transparent;
-      border: none;
-      text-transform: uppercase;
-      font-weight: bold;
-      height: 50px;
-      width: 100%;
-      margin: 20px;
-
-      &:hover {
-        color: $red;
-        cursor: pointer;
-      }
-    }
-
-    .subtitle {
-      padding-bottom: 0;
-    }
-
-    .currentWorkout {
-      padding: 10px;
-    }
-
-    .css-2b097c-container {
-      z-index: 100;
-    }
-  }
-
-  .controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-  }
-
-  #startWorkout:checked~.workoutLabel {
-    visibility: hidden;
-  }
-
-  #radioWorkout:checked~.workoutLabel {
-    background: #CCC;
-    color: black;
-    visibility: visible;
-  }
-
-  #radioDashboard:checked~.dashboardLabel {
-    background: #CCC;
-    color: black;
-  }
-
-  #radioCalendar:checked~.calendarLabel {
-    background: #CCC;
-    color: black;
-  }
-
-  .label {
+  &:hover {
     cursor: pointer;
-    padding: 0 20px;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    display: flex;
-
-
-    &:hover {
-      background: #CCC;
-      color: black;
-    }
   }
-
-  .active {
-    background: #CCC;
-    color: black;
-  }
-
-  input {
-    // display: none;
-  }
-
-
-  .tabs {
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    display: flex;
-    padding-left: 20px;
-  }
-
 }
+
+// .hidden {
+//   visibility: hidden;
+// }
+
+// .head {
+//   width: 100%;
+//   text-align: center;
+//   display: flex;
+//   justify-content: space-around;
+//   flex-direction: row;
+//   align-items: center;
+//   height: 80px;
+
+//   .title {
+//     width: 200px;
+
+//     .logo {
+//       text-align: left;
+//       font-size: 1.2em;
+//       background: transparent;
+//       border: none;
+//       text-transform: uppercase;
+//       font-weight: bold;
+//       height: 50px;
+//       width: 100%;
+//       margin: 20px;
+
+//       i {
+//         font-size: .8em;
+//       }
+
+//       &:hover {
+//         color: $red;
+//         cursor: pointer;
+//       }
+//     }
+
+//     .subtitle {
+//       padding-bottom: 0;
+//     }
+
+//     .currentWorkout {
+//       padding: 10px;
+//     }
+
+//     .css-2b097c-container {
+//       z-index: 100;
+//     }
+//   }
+
+//   .controls {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     flex-direction: row;
+//   }
+
+//   #startWorkout:checked~.workoutLabel {
+//     visibility: hidden;
+//   }
+
+//   #radioWorkout:checked~.workoutLabel {
+//     background: #CCC;
+//     color: black;
+//     visibility: visible;
+//   }
+
+//   #radioDashboard:checked~.dashboardLabel {
+//     background: #CCC;
+//     color: black;
+//   }
+
+//   #radioCalendar:checked~.calendarLabel {
+//     background: #CCC;
+//     color: black;
+//   }
+
+//   .label {
+//     cursor: pointer;
+//     padding: 0 20px;
+//     height: 100%;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: row;
+//     display: flex;
+
+
+//     &:hover {
+//       background: #CCC;
+//       color: black;
+//     }
+//   }
+
+//   .active {
+//     background: #CCC;
+//     color: black;
+//   }
+
+//   input {
+//     // display: none;
+//   }
+
+
+//   .tabs {
+//     height: 100%;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: row;
+//     display: flex;
+//     padding-left: 20px;
+//   }
+
+// }

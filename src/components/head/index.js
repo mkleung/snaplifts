@@ -1,28 +1,15 @@
 import React from "react";
 import "./head.scss";
-import Select from 'react-select';
+// import Select from 'react-select';
 
 
-const options = [
-  { value: 'A', label: 'Workout A' },
-  { value: 'B', label: 'Workout B' },
-  { value: 'C', label: 'Workout C' },
-];
+// const options = [
+//   { value: 'A', label: 'Workout A' },
+//   { value: 'B', label: 'Workout B' },
+//   { value: 'C', label: 'Workout C' },
+// ];
 
-const monthNames = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec"
-];
+
 
 class Head extends React.Component {
   state = {
@@ -32,49 +19,38 @@ class Head extends React.Component {
   render() {
 
 
-    let activeTab = this.props.activeTab;
-    let hidden = activeTab === "start" ? "hidden" : "";
-    let workoutClass = activeTab === "workout" ? "active label" : `${hidden} label`;
-    let dashboardClass = activeTab === "dashboard" ? "active label" : "label";
-    let calendarClass = activeTab === "calendar" ? "active label" : "label";
 
-    const selectedOption = { value: this.props.currentWorkout, label: `Workout ${this.props.currentWorkout}` };
-
-    const date = new Date();
-    const currentDate = `${
-      monthNames[date.getMonth()]
-      } ${date.getDate()}, ${date.getFullYear()} `;
+    // let activeTab = this.props.activeTab;
+    // let hidden = activeTab === "start" ? "hidden" : "";
+    // let workoutClass = activeTab === "workout" ? "active label" : `${hidden} label`;
+    // let dashboardClass = activeTab === "dashboard" ? "active label" : "label";
+    // let calendarClass = activeTab === "calendar" ? "active label" : "label";
+    // const selectedOption = { value: this.props.currentWorkout, label: `Workout ${this.props.currentWorkout}` };
     return (
-      <div className="head">
-        <div className="title">
-          <button className="logo" onClick={() => this.props.selectTab("start")}>SnapLifts</button>
-        </div>
+      <React.Fragment>
+        <nav>
+          <div className="nav-wrapper">
+            <div className="brand-logo" onClick={() => this.props.selectTab("start")}>
+              Snap <i className="material-icons">fitness_center</i> Lifts
+          </div>
 
-        <div className="title">
-          <div>{currentDate}</div>
-        </div>
-
-        <div className="title">
-          {this.props.activeTab === "workout" &&
+            {/* {this.props.activeTab === "workout" &&
             <Select
               value={selectedOption}
               onChange={this.props.handleWorkoutChange}
               options={options}
             />
-          }
-        </div>
+          } */}
 
+            <ul id="nav-mobile" className="right hide-on-med-and-down">
+              <li><a onClick={() => this.props.selectTab("workout")}>Workout</a></li>
+              <li><a onClick={() => this.props.selectTab("dashboard")}>Dashboard</a></li>
+              <li><a onClick={() => this.props.selectTab("calendar")}>Calendar</a></li>
+            </ul>
+          </div>
+        </nav>
+      </React.Fragment>
 
-
-        <div className="tabs" onChange={this.props.setActiveTab}>
-
-          <div className={workoutClass} onClick={() => this.props.selectTab("workout")}>Workout</div>
-          <div className={dashboardClass} onClick={() => this.props.selectTab("dashboard")}>Dashboard</div>
-          <div className={calendarClass} onClick={() => this.props.selectTab("calendar")}>Calendar</div>
-
-        </div>
-
-      </div >
     );
   }
 }

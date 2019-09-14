@@ -16,10 +16,8 @@
         height: 50px;
         display: flex;
         justify-content: flex-end;
-        margin: 10px;
 
         .addToggle {
-            margin-right: 10px;
             background: $red;
             border: none;
             height: 50px;
@@ -47,41 +45,32 @@
 
 
     .addList {
-
         opacity: 0;
         width: 100%;
         height: 0;
-        margin-top: 10px;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
+        padding-right: 10px;
         align-items: center;
         transition: .5s ease;
 
 
         .add__input {
             border: none;
-            height: 45px;
-            width: 47%;
+
+            width: 100%;
             text-align: left;
             padding: 0 10px;
             border-radius: 10px;
+            background: #FFF;
+            margin: 0 10px 0 0;
 
             &:focus {
                 cursor: pointer;
             }
         }
 
-        .add__select {
-            height: 45px;
-            width: 30%;
-            border: none;
-            border-radius: 10px;
-
-            padding: 10px;
-        }
-
         .add__button {
-            height: 50px;
             padding: 15px;
             background: $red;
             border: none;
@@ -116,29 +105,34 @@
     .itemList {
         width: 100%;
 
-
         .items {
-
             height: 50px;
-            width: 95%;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-direction: row;
             background: #FFF;
-            margin: 10px;
+            margin: 10px 0;
             border-radius: 10px;
             padding: 0 10px;
 
             .title {
-
+                display: flex;
+                align-items: center;
                 text-align: left;
+                width: 100%;
+                justify-content: flex-start;
+
+                .icon {
+                    margin-right: 10px;
+                }
             }
 
             .control {
                 button {
                     border: none;
-                    padding: 5px 20px;
+
                     border: 2px solid $red;
 
                     &:hover {
@@ -152,8 +146,9 @@
                 }
 
                 .deleteButton {
-                    background: $red;
-                    color: #FFF;
+                    background: transparent;
+                    color: $red;
+                    border: none;
                 }
             }
         }
