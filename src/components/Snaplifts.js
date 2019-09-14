@@ -47,7 +47,6 @@ class Snaplifts extends React.Component {
       history: []
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -152,7 +151,7 @@ class Snaplifts extends React.Component {
     });
   }
 
-  handleSubmit(addWorkoutInput, addWorkoutSelect) {
+  dashboardAdd(addWorkoutInput, addWorkoutSelect) {
     let workouts = this.state.workouts;
     let lastItem = workouts[workouts.length - 1];
     let workout = { key: lastItem.key + 1, workout: addWorkoutSelect, title: addWorkoutInput, sets: [false, false, false, false, false] }
@@ -191,7 +190,7 @@ class Snaplifts extends React.Component {
               workouts={this.state.workouts}
               deleteItem={this.deleteItem}
               currentWorkout={this.state.currentWorkout}
-              handleSubmitButton={this.handleSubmit}
+              dashboardAdd={this.dashboardAdd.bind(this)}
             />
           }
           {this.state.activeTab === "calendar" &&
