@@ -1,6 +1,6 @@
 import React from "react";
 import "./workouts.scss";
-import Rep from "../rep"
+import Rep from "./rep"
 class Workouts extends React.Component {
   render() {
     let currentWorkouts = this.props.workouts.filter(item => item.workout === this.props.currentWorkout);
@@ -24,7 +24,7 @@ class Workouts extends React.Component {
       <div className="workouts">
         {listItems}
         <div className="finishButton">
-          <button onClick={this.props.workoutFinish}>FINISH</button>
+          <button className="waves-effect waves-light btn-large red" onClick={this.props.workoutFinish}>FINISH</button>
         </div>
       </div>
     );

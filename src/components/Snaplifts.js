@@ -4,9 +4,7 @@ import Workouts from "./workouts";
 import Calendar from "./calendar";
 import Dashboard from "./dashboard";
 import Start from "./start"
-
 import "./snaplifts.scss";
-
 const monthNames = [
   "Jan",
   "Feb",
@@ -51,18 +49,26 @@ class Snaplifts extends React.Component {
 
   componentDidMount() {
     try {
-      const json = localStorage.getItem('snaplifts');
-      const history = JSON.parse(json);
-      if (history) {
-        this.setState(
-          {
-            history: history
-          }
-        );
-      }
+      const json_history = localStorage.getItem('snaplifts_history');
+      const history = JSON.parse(json_history);
+
+      const json_workouts = localStorage.getItem('snaplifts_workouts');
+      const workouts = JSON.parse(json_workouts);
+
+      if (history) { this.setState({ history: history }); }
+      if (workouts) { this.setState({ workouts: workouts }); }
+
     } catch (e) {
     }
   }
+
+  /* HELPERS  */
+  updateLocalStorage(local, state_data) {
+    const json = JSON.stringify(state_data);
+    localStorage.setItem(local, json);
+  }
+
+
 
   /* HEAD */
   handleWorkoutChange(event) {
@@ -78,7 +84,6 @@ class Snaplifts extends React.Component {
   /*
   START */
   startWorkout = (selectedWorkout) => {
-    console.log(selectedWorkout)
     this.setState({
       activeTab: "workout",
       currentWorkout: selectedWorkout
@@ -101,7 +106,6 @@ class Snaplifts extends React.Component {
       workouts: workouts
     })
   }
-
 
   workoutFinish = () => {
 
@@ -126,8 +130,6 @@ class Snaplifts extends React.Component {
     let current_datetime = new Date()
     let formatted_date = current_datetime.getDate() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getFullYear()
     history.push({ user: "mike", date: formatted_date, result: result })
-    const json = JSON.stringify(this.state.history);
-    localStorage.setItem('snaplifts', json);
 
     // CLEAR
     for (const workout of workouts) {
@@ -135,8 +137,10 @@ class Snaplifts extends React.Component {
       workout.sets = [false, false, false, false, false];
     }
     this.setState({
-      workouts: workouts
+      workouts: workouts,
+      history: history
     })
+    this.updateLocalStorage('snaplifts_history', this.state.history);
   }
 
   /*
@@ -149,6 +153,8 @@ class Snaplifts extends React.Component {
     this.setState({
       workouts: filteredWorkouts
     });
+
+    this.updateLocalStorage('snaplifts_workouts', this.state.workouts);
   }
 
   dashboardAdd(addWorkoutInput, addWorkoutSelect) {
@@ -159,7 +165,7 @@ class Snaplifts extends React.Component {
     this.setState({
       workouts: workouts
     })
-
+    this.updateLocalStorage('snaplifts_workouts', this.state.workouts);
   }
 
   render() {

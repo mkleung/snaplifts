@@ -9,9 +9,9 @@ class Dashboard extends React.Component {
         const workoutsC = this.props.workouts.filter(item => { return item.workout === "C" })
         return (
             <div className="dashboard" >
-                <DashboardItem dashboardAdd={this.props.dashboardAdd} workoutTitle="A" workouts={workoutsA} />
-                <DashboardItem dashboardAdd={this.props.dashboardAdd} workoutTitle="B" workouts={workoutsB} />
-                <DashboardItem dashboardAdd={this.props.dashboardAdd} workoutTitle="C" workouts={workoutsC} />
+                <DashboardItem dashboardAdd={this.props.dashboardAdd} deleteItem={this.props.deleteItem} workoutTitle="A" workouts={workoutsA} />
+                <DashboardItem dashboardAdd={this.props.dashboardAdd} deleteItem={this.props.deleteItem} workoutTitle="B" workouts={workoutsB} />
+                <DashboardItem dashboardAdd={this.props.dashboardAdd} deleteItem={this.props.deleteItem} workoutTitle="C" workouts={workoutsC} />
             </div>
         )
     }
