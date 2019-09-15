@@ -22,6 +22,12 @@ class Workouts extends React.Component {
     })
     return (
       <div className="workouts">
+        <div className="header">
+          <h4>Workout {this.props.currentWorkout}</h4>
+          <div className="change">
+            <a onClick={() => this.props.selectTab("start")}>Change Workout</a>
+          </div>
+        </div>
         {listItems}
         <div className="finishButton">
           <button className="waves-effect waves-light btn-large red" onClick={this.props.workoutFinish}>FINISH</button>

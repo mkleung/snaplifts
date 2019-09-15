@@ -128,8 +128,7 @@ class Snaplifts extends React.Component {
     // HISTORY
     let history = this.state.history;
     let current_datetime = new Date()
-    let formatted_date = current_datetime.getDate() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getFullYear()
-    history.push({ user: "mike", date: formatted_date, result: result })
+    history.push({ user: "mike", date: current_datetime.toLocaleDateString("en-US"), result: result })
 
     // CLEAR
     for (const workout of workouts) {
@@ -179,7 +178,7 @@ class Snaplifts extends React.Component {
           handleWorkoutChange={this.handleWorkoutChange.bind(this)}
           activeTab={this.state.activeTab}
           currentWorkout={this.state.currentWorkout} />
-        <div className="currentDate">{currentDate}</div>
+        {/* <div className="currentDate">{currentDate}</div> */}
         <div className="container">
           {this.state.activeTab === "start" &&
             <Start startWorkout={this.startWorkout} />
@@ -189,7 +188,8 @@ class Snaplifts extends React.Component {
               workouts={this.state.workouts}
               currentWorkout={this.state.currentWorkout}
               workoutToggle={this.workoutToggle.bind(this)}
-              workoutFinish={this.workoutFinish.bind(this)} />
+              workoutFinish={this.workoutFinish.bind(this)}
+              selectTab={this.selectTab.bind(this)} />
           }
           {this.state.activeTab === "dashboard" &&
             <Dashboard

@@ -1,0 +1,11 @@
+.weekdayLabels {
+
+    margin-top: 20px;
+    color: black;
+
+    .weeklyLabel {
+        width: calc(100% / 7);
+        display: inline-block;
+        text-align: center;
+    }
+}

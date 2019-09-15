@@ -1,110 +1,29 @@
 @import "../../variables.scss";
 
 
-.grid {
-    position: absolute;
-    top: 50%;
-    left: 40%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    height: 119px;
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction: column;
-
-    .square {
-
-        height: 15px;
-        width: 15px;
-        background: #CCC;
-        border: 1px solid #FFF;
-    }
-
-}
-
-
-
 .calendar {
-    margin-top: 100px;
-    background: #FFF;
-    width: 100%;
 
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+    border-radius: 0 0 10px 10px;
     align-items: center;
-    border-radius: 10px;
-    height: 500px;
 
-    .history {
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        flex-wrap: wrap;
+    .month {
+        height: 500px;
         width: 100%;
 
-        height: 100%;
+        background: #FFF;
+        margin: 10px 0;
+        border-radius: 10px;
+        padding: 0 10px;
 
-        .day {
-            height: 20px;
-            width: 20px;
-            background: #FFF;
-            position: relative;
-            margin: 5px;
-
-            &:hover {
-                cursor: pointer;
-            }
-
-            &:hover>.tooltip {
-                display: block;
-            }
-
-            .tooltip {
-                display: none;
-                position: absolute;
-                left: 5px;
-                top: 25px;
-                background: #FFF;
-                height: 20px;
-                width: 100px;
-
-                &:before {
-                    content: "";
-                    position: absolute;
-                    left: 0;
-                    top: -5px;
-                    width: 0;
-                    height: 0;
-                    border-left: 5px solid transparent;
-                    border-right: 5px solid transparent;
-                    -webkit-transform: rotate(-135deg);
-                    transform: rotate(-135deg);
-                    border-bottom: 5px solid #FFF;
-                }
-            }
+        .title {
+            text-align: center;
+            font-size: 2em;
+            margin: 30px 0;
         }
-
-        .red {
-            background: $red;
-        }
-
-        .lightRed {
-            background: $lightRed;
-        }
-
-        .lighterRed {
-            background: $lighterRed;
-        }
-
-        .darkRed {
-            background: $darkRed;
-        }
-
-        .darkerRed {
-            background: $darkerRed;
-        }
-
     }
-
 }

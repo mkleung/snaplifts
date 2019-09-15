@@ -1,65 +1,31 @@
 import React from 'react'
 import "./calendar.scss"
+import Weekdaylabels from "./labels";
+import Dates from "./dates";
 
 
 class Calendar extends React.Component {
     render() {
 
-        var squares = [];
-        for (var i = 0; i < 365; i++) {
-            squares.push("");
-        }
+        const date = new Date();
+        const month = date.toLocaleString("default", { month: "long" });
+        const year = date.getFullYear();
 
         return (
-            <div className="calendar content">
-                <h1>Calendar</h1>
+            <div className="calendar">
+                <div className="month">
+                    <div className="title">
+                        <span className="month">{month}</span>{" "}
+                        <span className="year">{year}</span>
+                    </div>
 
-                <div class="grid">
-                    {squares.map(() => {
-                        return <div className="square"></div>
-                    })}
+                    <Weekdaylabels />
+                    <Dates history={this.props.history} />
+
+
+
                 </div>
 
-                <div className="history">
-                    {this.props.history.map((item, index) => {
-                        let result = item.result;
-                        let colorClass = "day"
-                        switch (true) {
-                            case (result < .1):
-                                colorClass = "day ";
-                                break;
-                            case (result < .2):
-                                colorClass = "day lighterRed";
-                                break;
-                            case (result < .4):
-                                colorClass = "day lightRed";
-                                break;
-                            case (result < .6):
-                                colorClass = "day red";
-                                break;
-                            case (result < .8):
-                                colorClass = "day darkRed";
-                                break;
-                            case (result < 1.1):
-                                colorClass = "day darkerRed";
-                                break;
-                            default:
-                                break;
-                        }
-
-                        return (
-                            <React.Fragment>
-                                {/* <div className={colorClass} key={index}>
-                                    <div className="tooltip">
-                                        {item.date}
-                                    </div>
-                                </div> */}
-
-                            </React.Fragment>
-                        )
-                    })
-                    }
-                </div>
             </div>
         )
     }
