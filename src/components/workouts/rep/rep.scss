@@ -9,21 +9,19 @@
     justify-content: center;
 
     input {
-        // display: none;
         z-index: 999;
         opacity: 1;
     }
 
     input:checked~.circleLabel {
-        background: red;
-        border: 2px solid red;
-        box-shadow: 0 0 10px 0 lighten($red, 20%);
+        background: $primary;
+        border: 2px solid $primary;
+        box-shadow: 0 0 10px 0 lighten($primary, 20%);
 
         .checkmark {
             // animation: dash 5s ease forwards;
             transition: 1s ease;
             stroke-dashoffset: 0;
-
         }
     }
 
@@ -48,7 +46,6 @@
 
         &:hover {
             cursor: pointer;
-
         }
     }
 

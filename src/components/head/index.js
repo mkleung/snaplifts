@@ -11,25 +11,24 @@ class Head extends React.Component {
 
 
     let activeTab = this.props.activeTab;
-    let activeWorkout = activeTab === "workout" ? "active" : "";
-    let activeDashboard = activeTab === "dashboard" ? "active" : "";
-    let activeCalendar = activeTab === "calendar" ? "active" : "";
+    let activeWorkout = activeTab === "workout" ? "nav-link active" : "nav-link";
+    let activeDashboard = activeTab === "dashboard" ? "nav-link active" : "nav-link";
+    let activeCalendar = activeTab === "calendar" ? "nav-link active" : "nav-link";
 
     return (
       <React.Fragment>
         <nav>
           <div className="nav-wrapper">
             <div className="brand-logo" onClick={() => this.props.selectTab("start")}>
-              Snap <i className="material-icons">fitness_center</i> Lifts
+              <i className="material-icons">fitness_center</i> SnapLifts
           </div>
 
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               {activeTab !== "start" &&
-                <li><a className={activeWorkout} onClick={() => this.props.selectTab("workout")}>Workout</a></li>
+                <li><button className={activeWorkout} onClick={() => this.props.selectTab("workout")}>Workout</button></li>
               }
-
-              <li><a className={activeDashboard} onClick={() => this.props.selectTab("dashboard")}>Dashboard</a></li>
-              <li><a className={activeCalendar} onClick={() => this.props.selectTab("calendar")}>Calendar</a></li>
+              <li><button className={activeDashboard} onClick={() => this.props.selectTab("dashboard")}>Dashboard</button></li>
+              <li><button className={activeCalendar} onClick={() => this.props.selectTab("calendar")}>Calendar</button></li>
             </ul>
           </div>
         </nav>

@@ -5,20 +5,7 @@ import Calendar from "./calendar";
 import Dashboard from "./dashboard";
 import Start from "./start"
 import "./snaplifts.scss";
-const monthNames = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec"
-];
+
 class Snaplifts extends React.Component {
   constructor(props) {
     super(props);
@@ -121,7 +108,9 @@ class Snaplifts extends React.Component {
           repComplete++;
         }
         totalReps++;
+        return null;
       })
+      return null;
     });
     let result = repComplete / totalReps;
 
@@ -132,7 +121,6 @@ class Snaplifts extends React.Component {
 
     // CLEAR
     for (const workout of workouts) {
-      let sets = workout.sets;
       workout.sets = [false, false, false, false, false];
     }
     this.setState({
@@ -168,9 +156,6 @@ class Snaplifts extends React.Component {
   }
 
   render() {
-    const currentDate = `${
-      monthNames[new Date().getMonth()]
-      } ${new Date().getDate()}, ${new Date().getFullYear()} `;
     return (
       <React.Fragment>
         <Head

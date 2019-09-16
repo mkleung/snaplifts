@@ -8,7 +8,7 @@ class Workouts extends React.Component {
       return (
         <div className="set" key={index}>
           <div className="title">
-            {item.key} - {item.title}
+            {item.title}
           </div>
           <div className="reps">
             <Rep index={index} item={item} repKey={`first-${index}`} repColumn={0} workoutToggle={this.props.workoutToggle} />
@@ -25,12 +25,12 @@ class Workouts extends React.Component {
         <div className="header">
           <h4>Workout {this.props.currentWorkout}</h4>
           <div className="change">
-            <a onClick={() => this.props.selectTab("start")}>Change Workout</a>
+            <button className="waves-effect waves-light btn-small primary-background" onClick={() => this.props.selectTab("start")}>Change Workout</button>
           </div>
         </div>
         {listItems}
         <div className="finishButton">
-          <button className="waves-effect waves-light btn-large red" onClick={this.props.workoutFinish}>FINISH</button>
+          <button className="waves-effect waves-light btn-large" onClick={this.props.workoutFinish}>FINISH WORKOUT</button>
         </div>
       </div>
     );

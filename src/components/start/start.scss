@@ -44,9 +44,14 @@
             align-items: center;
             height: 300px;
 
+            button {
+                background: $primary;
+                border-radius: 10px;
+
+                &:hover {
+                    background: darken($primary, 10%);
+                }
+            }
         }
     }
-
-
-
 }

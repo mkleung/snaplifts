@@ -31,7 +31,7 @@ class DashboardItems extends React.Component {
                 <div className="items" key={index}>
                     <div className="title">
                         <div className="icon"><i className="material-icons">fitness_center</i></div>
-                        <div>{item.key} - {item.title}</div>
+                        <div>{item.title}</div>
                     </div>
                     <div className="control">
                         <button className="deleteButton" onClick={() => this.props.deleteItem(item.key)}>

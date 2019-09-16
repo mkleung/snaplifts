@@ -3,14 +3,10 @@ import "./dates.scss";
 
 class Dates extends React.Component {
     render() {
-
         let history = this.props.history;
-        console.log(history)
         const currentDate = new Date();
-
         // return an array containing rows
         const days = returnDays(currentDate.getMonth(), currentDate.getFullYear());
-
         // display on screen
         const displayDays = days.map((day, index) => {
             return (
@@ -47,7 +43,7 @@ class Dates extends React.Component {
                 let myDay = new Date(i);
 
                 let colorClass = "";
-                history.map(item => {
+                history.map((item) => {
                     if (item.date === myDay.toLocaleDateString("en-US")) {
                         let result = item.result;
 
@@ -56,47 +52,41 @@ class Dates extends React.Component {
                                 colorClass = "";
                                 break;
                             case (result < .2):
-                                colorClass = "lighterRed";
+                                colorClass = "lighterColor";
                                 break;
                             case (result < .4):
-                                colorClass = "lightRed";
+                                colorClass = "lightColor";
                                 break;
                             case (result < .6):
-                                colorClass = "red";
+                                colorClass = "color";
                                 break;
                             case (result < .8):
-                                colorClass = "darkRed";
+                                colorClass = "dakrColor";
                                 break;
                             case (result < 1.1):
-                                colorClass = "darkerRed";
+                                colorClass = "darkerColor";
                                 break;
                             default:
                                 break;
                         }
                     }
+                    return null;
                 })
-
                 days[c].push(
-                    <div className="square">
-                        <button
-                            className={colorClass + " date " + (myDay.getDate() === new Date().getDate() ? "current" : "")}
-                            key={i}
-
-                        >
+                    <div className="square" key={i}>
+                        <div
+                            className={colorClass + " date " + (myDay.getDate() === new Date().getDate() ? "current" : "")}>
                             {myDay.getDate()}
-                        </button>
+                        </div>
                     </div>
                 );
-
                 if (Object.keys(days[c]).length === 7) {
                     c = c + 1;
                 }
             }
             return days;
         }
-
         return <div className="weekdays">{displayDays}</div>;
     }
 }
-
 export default Dates;

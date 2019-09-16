@@ -7,12 +7,9 @@ class Labels extends Component {
     render() {
         const weekdayLabels = days.map((label, index) => {
             return (
-                <div className="weeklyLabel" key={index}>
-                    {label}
-                </div>
+                <div className="weeklyLabel" key={index}>{label}</div>
             );
         });
-
         return <div className="weekdayLabels">{weekdayLabels}</div>;
     }
 }

@@ -9,6 +9,14 @@
   justify-content: space-between;
   border-radius: 0 0 10px 10px;
 
+  button {
+    border-radius: 10px;
+
+    &:hover {
+      background: darken($primary, 10%);
+    }
+  }
+
   .header {
     display: flex;
     justify-content: space-between;
@@ -24,10 +32,12 @@
       margin-top: 15px;
 
       a {
-        color: $red;
+        color: $primary;
+        font-weight: bold;
 
         &:hover {
           cursor: pointer;
+          text-decoration: underline;
         }
       }
     }
@@ -42,6 +52,8 @@
     .title {
       text-align: left;
       padding: 10px 50px;
+      font-size: 1.5em;
+      // color: $primary;
     }
 
     .reps {
@@ -54,5 +66,9 @@
 
   .finishButton {
     margin: 10px 0;
+
+    button {
+      background: $primary;
+    }
   }
 }
