@@ -31,6 +31,7 @@ class Snaplifts extends React.Component {
       currentWorkout: 'A',
       workouts: this.init,
       history: [],
+      body_weight: []
     };
 
   }
@@ -145,6 +146,15 @@ class Snaplifts extends React.Component {
     this.updateLocalStorage('snaplifts_workouts', this.state.workouts);
   }
 
+
+  /* PROFILE FUNCTIONS */
+  addWeight = (weight) => {
+    let body_array = this.state.body_weight;
+    body_array.push({ date: new Date(), weight: weight })
+    this.updateLocalStorage("snaplifts_weight", body_array);
+  }
+
+
   dashboardAdd(addWorkoutInput, addWorkoutSelect) {
     let workouts = this.state.workouts;
     let lastItem = workouts[workouts.length - 1];
@@ -191,7 +201,7 @@ class Snaplifts extends React.Component {
           }
 
           {this.state.activeTab === "profile" &&
-            <Profile />
+            <Profile addWeight={this.addWeight} />
           }
         </div>
 
