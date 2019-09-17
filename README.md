@@ -8,4 +8,8 @@ To be completed
 
 
 npm start
+
+npm install --save gh-pages
+
+
 npm run deploy
