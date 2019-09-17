@@ -1,3 +1,7 @@
+### Demo
+
+[Link](https://mkleung.github.io/snaplifts/)
+
 
 To be completed
 
@@ -26,4 +30,6 @@ Then add into scripts
 ```
 
 Push 
+
+
 npm run deploy
