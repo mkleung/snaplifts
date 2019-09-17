@@ -14,7 +14,7 @@ class Start extends React.Component {
                         <button className="waves-effect waves-light btn-large " onClick={() => this.props.startWorkout("A")}>Workout A</button>
                         <button className="waves-effect waves-light btn-large " onClick={() => this.props.startWorkout("B")}>Workout B</button>
                         <button className="waves-effect waves-light btn-large " onClick={() => this.props.startWorkout("C")}>Workout C</button>
-                        <button className="waves-effect waves-light btn-large btn-flat" onClick={() => { localStorage.clear(); }}>Clear Cookies</button>
+
                     </div>
                 </div>
 

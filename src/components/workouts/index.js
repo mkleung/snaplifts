@@ -7,8 +7,9 @@ class Workouts extends React.Component {
     const listItems = currentWorkouts.map((item, index) => {
       return (
         <div className="set" key={index}>
-          <div className="title">
-            {item.title}
+          <div className="set_heading">
+            <div className="title">{item.title}</div>
+            <div className="weight">100kg</div>
           </div>
           <div className="reps">
             <Rep index={index} item={item} repKey={`first-${index}`} repColumn={0} workoutToggle={this.props.workoutToggle} />

@@ -4,6 +4,7 @@ import Workouts from "./workouts";
 import Calendar from "./calendar";
 import Dashboard from "./dashboard";
 import Start from "./start"
+import Profile from "./profile"
 import "./snaplifts.scss";
 
 class Snaplifts extends React.Component {
@@ -29,7 +30,7 @@ class Snaplifts extends React.Component {
       activeTab: "start",
       currentWorkout: 'A',
       workouts: this.init,
-      history: []
+      history: [],
     };
 
   }
@@ -184,8 +185,13 @@ class Snaplifts extends React.Component {
               dashboardAdd={this.dashboardAdd.bind(this)}
             />
           }
+
           {this.state.activeTab === "calendar" &&
             <Calendar history={this.state.history} />
+          }
+
+          {this.state.activeTab === "profile" &&
+            <Profile />
           }
         </div>
 

@@ -7,13 +7,11 @@ class Head extends React.Component {
   };
 
   render() {
-
-
-
     let activeTab = this.props.activeTab;
     let activeWorkout = activeTab === "workout" ? "nav-link active" : "nav-link";
     let activeDashboard = activeTab === "dashboard" ? "nav-link active" : "nav-link";
     let activeCalendar = activeTab === "calendar" ? "nav-link active" : "nav-link";
+    let activeProfile = activeTab === "profile" ? "nav-link active" : "nav-link";
 
     return (
       <React.Fragment>
@@ -29,6 +27,7 @@ class Head extends React.Component {
               }
               <li><button className={activeDashboard} onClick={() => this.props.selectTab("dashboard")}>Dashboard</button></li>
               <li><button className={activeCalendar} onClick={() => this.props.selectTab("calendar")}>Calendar</button></li>
+              <li><button className={activeProfile} onClick={() => this.props.selectTab("profile")}>Profile</button></li>
             </ul>
           </div>
         </nav>
