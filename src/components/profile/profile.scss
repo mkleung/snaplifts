@@ -16,6 +16,8 @@
 .profile {
     img {
         border-radius: 50%;
+        border: 2px solid #FFF;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, .3);
     }
 }
 
@@ -48,12 +50,15 @@
 
 
     .weights {
-
         display: flex;
         flex-direction: row;
+        width: 100%;
+        background: lighten(#CCC, 10%);
+        flex-wrap: wrap-reverse;
+        border-radius: 10px;
 
         .weight {
-            margin-right: 10px;
+            margin: 10px 25px;
             height: 100px;
             display: flex;
             justify-content: flex-end;

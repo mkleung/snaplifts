@@ -10,6 +10,14 @@ class Snaplifts extends React.Component {
   constructor(props) {
     super(props);
 
+    this.sets = [
+      { completed: false, weight: 100 },
+      { completed: false, weight: 100 },
+      { completed: false, weight: 100 },
+      { completed: false, weight: 100 },
+      { completed: false, weight: 100 }
+    ];
+
     this.init =
       [
         { key: 1, workout: "A", title: "Squats", sets: [false, false, false, false, false] },

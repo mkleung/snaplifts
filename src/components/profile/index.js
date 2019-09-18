@@ -46,7 +46,9 @@ class Profile extends React.Component {
                         </div>
 
                         <div className="row">
+                            <p>Weight Chart</p>
                             <div className="weights">
+
                                 {
                                     this.props.user.weights.length !== 0 &&
                                     this.props.user.weights.map((item, index) => {
@@ -63,30 +65,13 @@ class Profile extends React.Component {
                                             </div>
                                         )
                                     })}
-                                {/* {this.props.user &&
-                                    this.props.user.weight.map((item, index) => {
-                                        let myDate = item.date.split("T")[0];
-                                        let percent = 100 * (item.weight / 500)
-                                        var barStyle = {
-                                            height: percent
-                                        };
-
-                                        return (
-                                            <div key={index} className="weight">
-                                                <div className="weightBar" style={barStyle}>{item.weight}lbs</div>
-                                                <div className="date">{myDate}</div>
-                                            </div>
-                                        )
-                                    })} */}
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div className="block">
                     <Calendar history={this.props.history} />
                 </div>
-
                 <div className="reset block">
                     <div className="row">
                         <div className=" col s12 center-align">
@@ -95,9 +80,7 @@ class Profile extends React.Component {
                         </div>
                     </div>
                 </div>
-
             </React.Fragment>
-
         )
     }
 }
