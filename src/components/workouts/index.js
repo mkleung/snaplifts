@@ -26,12 +26,12 @@ class Workouts extends React.Component {
         <div className="header">
           <h4>Workout {this.props.currentWorkout}</h4>
           <div className="change">
-            <button className="waves-effect waves-light btn-small primary-background" onClick={() => this.props.selectTab("start")}>Change Workout</button>
+            <button className="snapButton waves-effect waves-light btn-small" onClick={() => this.props.selectTab("start")}>Change Workout</button>
           </div>
         </div>
         {listItems}
         <div className="finishButton">
-          <button className="waves-effect waves-light btn-large" onClick={this.props.workoutFinish}>FINISH WORKOUT</button>
+          <button className="snapButton waves-effect waves-light btn-large" onClick={this.props.workoutFinish}>FINISH WORKOUT</button>
         </div>
       </div>
     );

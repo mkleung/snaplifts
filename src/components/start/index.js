@@ -11,9 +11,9 @@ class Start extends React.Component {
                 <div className="right">
                     <h3 className="title">Workout Tracker</h3>
                     <div className="buttons">
-                        <button className="waves-effect waves-light btn-large " onClick={() => this.props.startWorkout("A")}>Workout A</button>
-                        <button className="waves-effect waves-light btn-large " onClick={() => this.props.startWorkout("B")}>Workout B</button>
-                        <button className="waves-effect waves-light btn-large " onClick={() => this.props.startWorkout("C")}>Workout C</button>
+                        <button className="snapButton waves-effect waves-light btn-large " onClick={() => this.props.startWorkout("A")}>Workout A</button>
+                        <button className="snapButton waves-effect waves-light btn-large " onClick={() => this.props.startWorkout("B")}>Workout B</button>
+                        <button className="snapButton waves-effect waves-light btn-large " onClick={() => this.props.startWorkout("C")}>Workout C</button>
 
                     </div>
                 </div>

@@ -1,51 +1,103 @@
 import "./profile.scss"
+import Calendar from "../calendar"
 
 import React from 'react'
 class Profile extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = ({
-            weight: 0
-        })
-    }
 
     handleAddWeight(event) {
         event.preventDefault();
         const addWeight = this.refs.addWeight.value;
-
         if (addWeight !== "") {
             this.props.addWeight(addWeight);
             this.refs.addWeight.value = "";
         }
     }
 
-
-
     render() {
         return (
-            <div className="profile">
-                <img src="https://via.placeholder.com/150/" alt="profile" />
-                <h3>Profile </h3>
-
-                <div className="container">
-
-                    <div className="row">
-                        <div className=" col s10">
-                            <input type="number" className="weightInput" placeholder="Enter weight in lbs" ref="addWeight" />
-                        </div>
-                        <div className=" col s2">
-                            <button onClick={this.handleAddWeight.bind(this)} className="waves-effect waves-light btn-large">Save</button>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className=" col s12 center-align">
-                            <button className="waves-effect waves-light btn-large" onClick={() => { localStorage.clear(); }}>Reset All Data</button>
+            <React.Fragment>
+                <div className="profile block">
+                    <div className="container">
+                        <div className="row">
+                            <div className="center-align col s8">
+                                <img src="https://via.placeholder.com/150/" alt="profile" />
+                            </div>
+                            <div className=" col s4">
+                                <h3>{this.props.user.name}</h3>
+                                <p>{this.props.user.age} years</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <div className="weight-container block">
+                    <div className="container">
+                        <div className="row">
+                            <div className=" col s12">
+                                <h4 className="center-align">Weight Tracker</h4>
+                            </div>
+                            <div className=" col s10">
+                                <input type="number" className="weightInput" placeholder="Enter weight in lbs" ref="addWeight" />
+                            </div>
+                            <div className=" col s2">
+                                <button onClick={this.handleAddWeight.bind(this)} className="snapButton waves-effect waves-light btn-large">Save</button>
+                            </div>
+                        </div>
+
+                        <div className="row">
+                            <div className="weights">
+                                {
+                                    this.props.user.weights.length !== 0 &&
+                                    this.props.user.weights.map((item, index) => {
+                                        let myDate = item.date.split("T")[0];
+                                        let percent = 100 * (item.weight / 500)
+                                        var barStyle = {
+                                            height: percent
+                                        };
+
+                                        return (
+                                            <div key={index} className="weight">
+                                                <div className="weightBar" style={barStyle}>{item.weight}lbs</div>
+                                                <div className="date">{myDate}</div>
+                                            </div>
+                                        )
+                                    })}
+                                {/* {this.props.user &&
+                                    this.props.user.weight.map((item, index) => {
+                                        let myDate = item.date.split("T")[0];
+                                        let percent = 100 * (item.weight / 500)
+                                        var barStyle = {
+                                            height: percent
+                                        };
+
+                                        return (
+                                            <div key={index} className="weight">
+                                                <div className="weightBar" style={barStyle}>{item.weight}lbs</div>
+                                                <div className="date">{myDate}</div>
+                                            </div>
+                                        )
+                                    })} */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="block">
+                    <Calendar history={this.props.history} />
+                </div>
+
+                <div className="reset block">
+                    <div className="row">
+                        <div className=" col s12 center-align">
+                            <h4>Danger Zone</h4>
+                            <button className="snapButton waves-effect waves-light btn-large" onClick={() => { localStorage.clear(); }}>Reset All Data</button>
+                        </div>
+                    </div>
+                </div>
+
+            </React.Fragment>
+
         )
     }
 }

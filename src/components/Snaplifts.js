@@ -1,7 +1,6 @@
 import React from "react";
 import Head from "./head";
 import Workouts from "./workouts";
-import Calendar from "./calendar";
 import Dashboard from "./dashboard";
 import Start from "./start"
 import Profile from "./profile"
@@ -25,16 +24,18 @@ class Snaplifts extends React.Component {
       ];
 
     this.state = {
-      user: 'mike',
+
+      user: { name: "Mike", age: 30, height: 172, weights: [] },
       count: 9,
       activeTab: "start",
       currentWorkout: 'A',
       workouts: this.init,
-      history: [],
-      body_weight: []
+      history: []
     };
 
   }
+
+
 
   componentDidMount() {
     try {
@@ -46,6 +47,19 @@ class Snaplifts extends React.Component {
 
       if (history) { this.setState({ history: history }); }
       if (workouts) { this.setState({ workouts: workouts }); }
+
+    } catch (e) {
+    }
+
+
+    try {
+      const json_history = localStorage.getItem('snaplifts_user');
+      const user = JSON.parse(json_history);
+      if (user) {
+        this.setState({
+          user: user
+        })
+      }
 
     } catch (e) {
     }
@@ -119,7 +133,7 @@ class Snaplifts extends React.Component {
     // HISTORY
     let history = this.state.history;
     let current_datetime = new Date()
-    history.push({ user: "mike", date: current_datetime.toLocaleDateString("en-US"), result: result })
+    history.push({ user: this.state.user, date: current_datetime.toLocaleDateString("en-US"), result: result })
 
     // CLEAR
     for (const workout of workouts) {
@@ -149,9 +163,20 @@ class Snaplifts extends React.Component {
 
   /* PROFILE FUNCTIONS */
   addWeight = (weight) => {
-    let body_array = this.state.body_weight;
-    body_array.push({ date: new Date(), weight: weight })
-    this.updateLocalStorage("snaplifts_weight", body_array);
+    let user = this.state.user;
+    let body_array = this.state.user.weights;
+
+    let date = new Date();
+    let currentDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+    body_array.push({ date: currentDate, weight: weight })
+    user.weights = body_array;
+
+    this.setState({
+      user: user
+    })
+    this.updateLocalStorage("snaplifts_user", user);
+
+    console.log(weight)
   }
 
 
@@ -196,12 +221,13 @@ class Snaplifts extends React.Component {
             />
           }
 
-          {this.state.activeTab === "calendar" &&
-            <Calendar history={this.state.history} />
-          }
-
           {this.state.activeTab === "profile" &&
-            <Profile addWeight={this.addWeight} />
+            <Profile
+              user={this.state.user}
+              addWeight={this.addWeight}
+              history={this.state.history}
+              activeTab={this.state.activeTab}
+            />
           }
         </div>
 
