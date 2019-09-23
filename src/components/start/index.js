@@ -4,7 +4,8 @@ import React from 'react'
 class Start extends React.Component {
     render() {
         var logoStyle = {
-            backgroundImage: "url(./assets/squats.png)"
+            // backgroundImage: "url(./assets/squats.png)"
+            backgroundImage: "url(https://via.placeholder.com/250)"
         };
         return (
             <div className="start">
@@ -18,7 +19,6 @@ class Start extends React.Component {
                         <button className="snapButton waves-effect waves-light btn-large " onClick={() => this.props.startWorkout("A")}>Workout A</button>
                         <button className="snapButton waves-effect waves-light btn-large " onClick={() => this.props.startWorkout("B")}>Workout B</button>
                         <button className="snapButton waves-effect waves-light btn-large " onClick={() => this.props.startWorkout("C")}>Workout C</button>
-
                     </div>
                 </div>
 

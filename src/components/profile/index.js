@@ -3,16 +3,19 @@ import Calendar from "../calendar"
 
 import React from 'react'
 class Profile extends React.Component {
+    logout = () => {
+        this.props.history.push(`/login`);
+        this.props.logoutUser();
+    };
 
-
-    handleAddWeight(event) {
-        event.preventDefault();
-        const addWeight = this.refs.addWeight.value;
-        if (addWeight !== "") {
-            this.props.addWeight(addWeight);
-            this.refs.addWeight.value = "";
-        }
-    }
+    // handleAddWeight(event) {
+    //     event.preventDefault();
+    //     const addWeight = this.refs.addWeight.value;
+    //     if (addWeight !== "") {
+    //         this.props.addWeight(addWeight);
+    //         this.refs.addWeight.value = "";
+    //     }
+    // }
 
     render() {
         return (
@@ -24,13 +27,17 @@ class Profile extends React.Component {
                                 <img src="https://via.placeholder.com/150/" alt="profile" />
                             </div>
                             <div className=" col s4">
-                                <h3>{this.props.user.name}</h3>
-                                <p>{this.props.user.age} years</p>
+                                <h3>{this.props.authenticatedUser.id}</h3>
+                                <p>{this.props.authenticatedUser.name} years</p>
+                            </div>
+
+                            <div className="center-align col s12">
+                                <button className="btn btn-primary snapButton" onClick={this.logout}>Logout</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                {/* 
                 <div className="weight-container block">
                     <div className="container">
                         <div className="row">
@@ -71,7 +78,7 @@ class Profile extends React.Component {
                 </div>
                 <div className="block">
                     <Calendar history={this.props.history} />
-                </div>
+                </div> */}
                 <div className="reset block">
                     <div className="row">
                         <div className=" col s12 center-align">
