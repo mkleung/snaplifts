@@ -12,8 +12,9 @@ class DashboardItems extends React.Component {
         event.preventDefault();
         const addWorkoutInput = this.refs.addWorkoutInput.value;
         if (addWorkoutInput !== "") {
-            this.props.dashboardAdd(addWorkoutInput, "A");
+            this.props.dashboardAdd(addWorkoutInput, this.props.workoutTitle.charAt(0));
             this.refs.addWorkoutInput.value = "";
+            this.toggleAdd()
         }
     }
 
@@ -25,6 +26,7 @@ class DashboardItems extends React.Component {
     render() {
         let displayClass = this.state.displayAdd ? "addList addList-active" : "addList";
         let displayAddButton = this.state.displayAdd ? <i className="material-icons">remove</i> : <i className="material-icons">add</i>;
+
 
         const listItem = this.props.workouts.map((item, index) => {
             return (

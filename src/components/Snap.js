@@ -5,7 +5,8 @@ import Profile from "./profile"
 import Register from "./register"
 import Dashboard from "./dashboard"
 import Start from "./start"
-import auth from "./auth"
+import auth from "../controllers/auth"
+import initWorkouts from "../controllers/workouts"
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 class Snap extends React.Component {
@@ -13,7 +14,9 @@ class Snap extends React.Component {
         super(props);
 
         this.state = {
-            page: "start"
+            page: "start",
+            loginUser: null,
+            workouts: null
         };
     }
 
@@ -26,19 +29,53 @@ class Snap extends React.Component {
         auth.addUser(name, email, password);
     };
     loginUser = id => {
-        auth.login(id);
+        this.setState({
+            loginUser: auth.login(id)
+        })
     };
 
     logoutUser = () => {
         auth.logout();
+        this.setState({
+            loginUser: null
+        })
     };
+
+    componentWillMount() {
+        let loginUser;
+        if (localStorage.getItem('snaplifts_login')) {
+            loginUser = JSON.parse(localStorage.getItem('snaplifts_login'))
+        } else {
+            loginUser = null
+        }
+
+        let workouts;
+        if (localStorage.getItem('snaplifts_workout')) {
+            workouts = JSON.parse(localStorage.getItem('snaplifts_workout'))
+        } else {
+            workouts = initWorkouts
+        }
+
+        this.setState({
+            loginUser: loginUser,
+            workouts: workouts
+        })
+    }
+
+
+
+
+    updateWorkout = (workouts) => {
+        localStorage.setItem('snaplifts_workout', JSON.stringify(workouts));
+    }
+
 
 
     render() {
         return (
             <Router>
 
-                <Nav changePage={this.changePage} />
+                <Nav loginUser={this.state.loginUser} changePage={this.changePage} />
 
                 {/* HOMEPAGE */}
                 <Route
@@ -84,11 +121,11 @@ class Snap extends React.Component {
                 <Route
                     path="/profile"
                     render={props =>
-                        auth.isAuthenticated === true ? (
+                        this.state.loginUser ? (
                             <Profile
                                 location={props.location}
                                 logoutUser={this.logoutUser}
-                                authenticatedUser={auth.authenticatedUser}
+                                loginUser={this.state.loginUser}
                                 users={auth.users}
                                 {...props}
                             />
@@ -103,9 +140,12 @@ class Snap extends React.Component {
                 <Route
                     path="/dashboard"
                     render={props =>
-                        auth.isAuthenticated === true ? (
+                        this.state.loginUser ? (
                             <Dashboard
                                 location={props.location}
+                                updateWorkout={this.updateWorkout}
+                                workouts={this.state.workouts}
+
                                 {...props}
                             />
                         ) : (

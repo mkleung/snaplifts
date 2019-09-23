@@ -9,6 +9,7 @@ class Register extends React.Component {
         this.state = {
             name: "",
             email: "",
+            age: 0,
             password: "",
             users: JSON.stringify(this.props.users)
         };
@@ -17,6 +18,10 @@ class Register extends React.Component {
 
     handleChangeName = event => {
         this.setState({ name: event.target.value });
+    };
+
+    handleChangeAge = event => {
+        this.setState({ age: event.target.value });
     };
 
     handleChangeEmail = event => {
@@ -31,7 +36,7 @@ class Register extends React.Component {
         // alert("A name was submitted: " + this.state.value);
         event.preventDefault();
 
-        this.props.addUser(this.state.name, this.state.email, this.state.password);
+        this.props.addUser(this.state.name, this.state.email, this.state.age, this.state.password);
 
         this.props.history.push(`/login`)
     };
@@ -48,6 +53,16 @@ class Register extends React.Component {
                         placeholder="Enter your name"
                         value={this.state.name}
                         onChange={this.handleChangeName}
+                    />
+
+                    <input
+                        required
+                        id="age"
+                        type="number"
+                        className="form-control "
+                        placeholder="Enter age"
+                        value={this.state.age}
+                        onChange={this.handleChangeAge}
                     />
 
                     <input
@@ -71,7 +86,7 @@ class Register extends React.Component {
                     />
 
 
-                    <input type="submit" className="btn btn-primary" value="Submit" />
+                    <input type="submit" className="btn btn-primary snapButton" value="Submit" />
 
                     <div className="sign">
                         Already have an account? <Link to="/login">Login In</Link>

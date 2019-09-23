@@ -4,8 +4,8 @@ import Calendar from "../calendar"
 import React from 'react'
 class Profile extends React.Component {
     logout = () => {
-        this.props.history.push(`/login`);
         this.props.logoutUser();
+        this.props.history.push(`/login`);
     };
 
     // handleAddWeight(event) {
@@ -27,8 +27,8 @@ class Profile extends React.Component {
                                 <img src="https://via.placeholder.com/150/" alt="profile" />
                             </div>
                             <div className=" col s4">
-                                <h3>{this.props.authenticatedUser.id}</h3>
-                                <p>{this.props.authenticatedUser.name} years</p>
+                                <h3>{this.props.loginUser.name}</h3>
+                                <p>{this.props.loginUser.age} years</p>
                             </div>
 
                             <div className="center-align col s12">
