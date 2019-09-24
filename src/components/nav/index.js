@@ -11,8 +11,10 @@ class Nav extends React.Component {
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         {this.props.loginUser === null && <li><Link to="/login">Login</Link></li>}
                         {this.props.loginUser === null && <li> <Link to="/register">Register</Link></li>}
-                        <li><Link to="/profile">Profile</Link></li>
-                        <li><Link to="/dashboard">Dashboard</Link></li>
+                        {this.props.loginUser !== null && <li><Link to="/workouts">Workouts</Link></li>}
+                        {this.props.loginUser !== null && <li><Link to="/dashboard">Dashboard</Link></li>}
+                        {this.props.loginUser !== null && <li><Link to="/profile">Profile</Link></li>}
+
                     </ul>
                 </div>
             </nav >

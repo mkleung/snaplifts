@@ -4,6 +4,7 @@ import Login from "./login"
 import Profile from "./profile"
 import Register from "./register"
 import Dashboard from "./dashboard"
+import Workouts from "./workouts"
 import Start from "./start"
 import auth from "../controllers/auth"
 import initWorkouts from "../controllers/workouts"
@@ -16,7 +17,7 @@ class Snap extends React.Component {
         this.state = {
             page: "start",
             loginUser: null,
-            workouts: null
+            workouts: null,
         };
     }
 
@@ -155,6 +156,21 @@ class Snap extends React.Component {
                 />
 
 
+                {/* WORKOUTS */}
+                <Route
+                    path="/workouts"
+                    render={props =>
+                        this.state.loginUser ? (
+                            <Workouts
+                                location={props.location}
+                                workouts={this.state.workouts}
+                                {...props}
+                            />
+                        ) : (
+                                <Redirect to="/login" />
+                            )
+                    }
+                />
             </Router>
         )
     }
