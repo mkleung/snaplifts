@@ -63,14 +63,9 @@ class Snap extends React.Component {
         })
     }
 
-
-
-
     updateWorkout = (workouts) => {
         localStorage.setItem('snaplifts_workout', JSON.stringify(workouts));
     }
-
-
 
     render() {
         return (
@@ -85,6 +80,7 @@ class Snap extends React.Component {
                     render={props => (
                         <Start
                             location={props.location}
+                            loginUser={this.state.loginUser}
                             {...props}
                         />
                     )}

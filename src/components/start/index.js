@@ -1,4 +1,5 @@
 import "./start.scss"
+import { Link } from "react-router-dom";
 
 import React from 'react'
 class Start extends React.Component {
@@ -16,12 +17,12 @@ class Start extends React.Component {
                     <h3 className="title">Gym Tracking App</h3>
                     <div className="subtitle">Snaplifts make it easier to track your gym workouts</div>
                     <div className="buttons">
-                        <button className="snapButton waves-effect waves-light btn-large " onClick={() => this.props.startWorkout("A")}>Workout A</button>
-                        <button className="snapButton waves-effect waves-light btn-large " onClick={() => this.props.startWorkout("B")}>Workout B</button>
-                        <button className="snapButton waves-effect waves-light btn-large " onClick={() => this.props.startWorkout("C")}>Workout C</button>
+
+                        {this.props.loginUser === null && <Link className="snapButton waves-effect waves-light btn-large" to="/login">Login</Link>}
+                        {this.props.loginUser === null && <Link className="snapButton waves-effect waves-light btn-large" to="/register">Register</Link>}
+                        {this.props.loginUser === null && <Link className="snapButton waves-effect waves-light btn-large" to="/">Demo</Link>}
                     </div>
                 </div>
-
             </div >
         )
     }

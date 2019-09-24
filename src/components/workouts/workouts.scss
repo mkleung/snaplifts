@@ -19,16 +19,25 @@
     width: 100%;
 
     .timer {
-      font-size: 3em;
+      font-size: 2em;
+      flex-grow: 1;
+
+      .timer-seconds {
+        font-size: .5em;
+      }
     }
 
     h4 {
       margin: 0;
       margin-right: 20px;
+      flex-grow: 1;
+
     }
 
     .change {
       margin-bottom: 5px;
+      flex-grow: 1;
+      text-align: right;
 
       a {
         color: $primary;

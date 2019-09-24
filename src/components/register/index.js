@@ -9,7 +9,7 @@ class Register extends React.Component {
         this.state = {
             name: "",
             email: "",
-            age: 0,
+            age: null,
             password: "",
             users: JSON.stringify(this.props.users)
         };

@@ -30,7 +30,7 @@ class Login extends React.Component {
             return user.email === email;
         });
         if (password === foundUser[0].password) {
-            this.props.history.push(`/profile`)
+            this.props.history.push(`/workouts`)
             this.props.loginUser(foundUser[0].id);
         } else {
             alert("invalid Email/password");
