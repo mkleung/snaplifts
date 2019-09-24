@@ -3,7 +3,7 @@ import "./workouts.scss";
 import Rep from "./rep"
 import UIfx from 'uifx'
 import bellAudio from "./bell.mp3"
-
+import { Link } from "react-router-dom";
 
 const LIMIT = 10;
 
@@ -116,15 +116,15 @@ class Workouts extends React.Component {
 
   render() {
 
-    let category = this.state.workouts.category.find(item => item.workout === this.state.workouts.currentWorkout);
+    let category = this.props.workouts.category.find(item => item.workout === this.props.workouts.currentWorkout);
 
-    let sets = this.state.workouts.sets
-    let currentWorkouts = sets.filter(item => item.workout === this.state.workouts.currentWorkout);
+    let sets = this.props.workouts.sets
+    let currentWorkouts = sets.filter(item => item.workout === this.props.workouts.currentWorkout);
     const listItems = currentWorkouts.map((item, index) => {
       return (
         <div className="set" key={index}>
           <div className="set_heading">
-            <div className="title">{item.title}</div>
+            <div className="title">{item.title} </div>
             <div className="weight">100kg</div>
           </div>
           <div className="reps">
@@ -139,14 +139,19 @@ class Workouts extends React.Component {
     })
     return (
       <div className="workouts container">
-
         <div className="header">
           <h4>Workout {this.state.workouts.currentWorkout} - {category.title}</h4>
-          <div className="timer">{this.state.timerCounter}
+          <div className="timer">
+
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.694 9.64137C18.694 14.7081 14.5819 18.8202 9.51523 18.8202C4.44853 18.8202 0.336426 14.7081 0.336426 9.64137C0.336426 4.57468 4.44853 0.462585 9.51523 0.462585C14.5819 0.462585 18.694 4.57468 18.694 9.64137Z" stroke="#2ecc71" strokeWidth="2" />
+              <path d="M9.60458 9.90921L5.63135 5.89136" stroke="#2ecc71" />
+              <path d="M15.2182 4.10455L9.28662 10.1715" stroke="#2ecc71" strokeWidth="2" />
+            </svg> {this.state.timerCounter}
             <span className="timer-seconds">s</span>
           </div>
           <div className="change">
-            <button className="snapButton waves-effect waves-light btn-small" onClick={() => this.props.selectTab("start")}>Change Workout</button>
+            <Link className="snapButton waves-effect waves-light" to="/">Change Workout</Link>
           </div>
         </div>
         {listItems}

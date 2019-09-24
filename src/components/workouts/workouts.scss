@@ -40,12 +40,13 @@
       text-align: right;
 
       a {
-        color: $primary;
+        color: #FFF;
         font-weight: bold;
+        padding: 10px;
+        text-align: center;
 
         &:hover {
           cursor: pointer;
-          text-decoration: underline;
         }
       }
     }

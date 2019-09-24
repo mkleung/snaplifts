@@ -67,13 +67,22 @@ class Snap extends React.Component {
         localStorage.setItem('snaplifts_workout', JSON.stringify(workouts));
     }
 
+    changeWorkoutParent = (workout) => {
+        let newWorkouts = this.state.workouts;
+        newWorkouts.currentWorkout = workout;
+        this.setState({
+            workouts: newWorkouts
+        })
+    }
+
     render() {
+
         return (
             <Router>
 
                 <Nav loginUser={this.state.loginUser} changePage={this.changePage} />
 
-                {/* HOMEPAGE */}
+                {/* START */}
                 <Route
                     exact
                     path="/"
@@ -81,6 +90,7 @@ class Snap extends React.Component {
                         <Start
                             location={props.location}
                             loginUser={this.state.loginUser}
+                            changeWorkoutParent={this.changeWorkoutParent}
                             {...props}
                         />
                     )}
@@ -94,6 +104,7 @@ class Snap extends React.Component {
                             location={props.location}
                             loginUser={this.loginUser}
                             page={this.state.page}
+
                             users={auth.users}
                             {...props}
                         />
