@@ -8,7 +8,7 @@ import Workouts from "./workouts"
 import Start from "./start"
 import auth from "../controllers/auth"
 import initWorkouts from "../controllers/workouts"
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { HashRouter, Route, Redirect } from "react-router-dom";
 
 class Snap extends React.Component {
     constructor(props) {
@@ -78,7 +78,7 @@ class Snap extends React.Component {
     render() {
 
         return (
-            <Router>
+            <HashRouter basename="/snaplifts">
 
                 <Nav loginUser={this.state.loginUser} changePage={this.changePage} />
 
@@ -178,7 +178,7 @@ class Snap extends React.Component {
                             )
                     }
                 />
-            </Router>
+            </HashRouter>
         )
     }
 }
