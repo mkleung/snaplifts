@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/snaplifts/static/css/main.ba758b47.chunk.css",
-    "main.js": "/snaplifts/static/js/main.d833f21b.chunk.js",
-    "main.js.map": "/snaplifts/static/js/main.d833f21b.chunk.js.map",
+    "main.js": "/snaplifts/static/js/main.beb66d6b.chunk.js",
+    "main.js.map": "/snaplifts/static/js/main.beb66d6b.chunk.js.map",
     "runtime~main.js": "/snaplifts/static/js/runtime~main.43f663a7.js",
     "runtime~main.js.map": "/snaplifts/static/js/runtime~main.43f663a7.js.map",
-    "static/js/2.670ab737.chunk.js": "/snaplifts/static/js/2.670ab737.chunk.js",
-    "static/js/2.670ab737.chunk.js.map": "/snaplifts/static/js/2.670ab737.chunk.js.map",
+    "static/js/2.c2621dbc.chunk.js": "/snaplifts/static/js/2.c2621dbc.chunk.js",
+    "static/js/2.c2621dbc.chunk.js.map": "/snaplifts/static/js/2.c2621dbc.chunk.js.map",
     "index.html": "/snaplifts/index.html",
-    "precache-manifest.17faf467881463a5b400d4585ec6ca20.js": "/snaplifts/precache-manifest.17faf467881463a5b400d4585ec6ca20.js",
+    "precache-manifest.daffbd690918d988ece6643002fd9264.js": "/snaplifts/precache-manifest.daffbd690918d988ece6643002fd9264.js",
     "service-worker.js": "/snaplifts/service-worker.js",
     "static/css/main.ba758b47.chunk.css.map": "/snaplifts/static/css/main.ba758b47.chunk.css.map",
     "static/media/bell.mp3": "/snaplifts/static/media/bell.0faab93e.mp3"
