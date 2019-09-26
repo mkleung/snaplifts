@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a45e0d354aaa4e045f34d637d050eeec",
+    "revision": "ed97319fd45a1b230661787e6a606855",
     "url": "/snaplifts/index.html"
   },
   {
-    "revision": "ac7db862e2de25fed987",
-    "url": "/snaplifts/static/css/main.ba758b47.chunk.css"
+    "revision": "deab52e9c7b550364e63",
+    "url": "/snaplifts/static/css/main.837a4c9f.chunk.css"
   },
   {
-    "revision": "cbe5907d6c6863ebc63a",
-    "url": "/snaplifts/static/js/2.c2621dbc.chunk.js"
+    "revision": "3eb3cb64cee7df058beb",
+    "url": "/snaplifts/static/js/2.7a4d61cf.chunk.js"
   },
   {
-    "revision": "ac7db862e2de25fed987",
-    "url": "/snaplifts/static/js/main.beb66d6b.chunk.js"
+    "revision": "deab52e9c7b550364e63",
+    "url": "/snaplifts/static/js/main.99511d1e.chunk.js"
   },
   {
     "revision": "aedb45d7df3483200b5e",
