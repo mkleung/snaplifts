@@ -80,7 +80,7 @@ class Snap extends React.Component {
         return (
             <HashRouter basename="/snaplifts">
 
-                <Nav loginUser={this.state.loginUser} changePage={this.changePage} />
+                <Nav logoutUser={this.logoutUser} loginUser={this.state.loginUser} changePage={this.changePage} />
 
                 {/* START */}
                 <Route

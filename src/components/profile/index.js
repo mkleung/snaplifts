@@ -20,19 +20,19 @@ class Profile extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="profile block">
+                <div className="profile card hoverable">
                     <div className="container">
                         <div className="row">
-                            <div className="center-align col s8">
+                            <div className="center-align col s12">
                                 <img src="https://via.placeholder.com/150/" alt="profile" />
                             </div>
-                            <div className=" col s4">
-                                <h3>{this.props.loginUser.name}</h3>
-                                <p>{this.props.loginUser.age} years</p>
+                            <div className=" col s12 center-align">
+                                <h3>{this.props.loginUser.name}, {this.props.loginUser.age}</h3>
+                                <p>Timer</p>
                             </div>
 
                             <div className="center-align col s12">
-                                <button className="btn btn-primary snapButton" onClick={this.logout}>Logout</button>
+                                <button className="btn btn-primary btn-large snapButton" onClick={this.logout}>Logout</button>
                             </div>
                         </div>
                     </div>
@@ -79,14 +79,7 @@ class Profile extends React.Component {
                 <div className="block">
                     <Calendar history={this.props.history} />
                 </div> */}
-                <div className="reset block">
-                    <div className="row">
-                        <div className=" col s12 center-align">
-                            <h4>Danger Zone</h4>
-                            <button className="snapButton waves-effect waves-light btn-large" onClick={() => { localStorage.clear(); }}>Reset All Data</button>
-                        </div>
-                    </div>
-                </div>
+              
             </React.Fragment>
         )
     }

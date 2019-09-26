@@ -42,57 +42,66 @@ class Register extends React.Component {
     };
     render() {
         return (
-            <div className="container register">
-                <form onSubmit={this.handleSubmit}>
-                    <h1>Register</h1>
 
-                    <input
-                        required
-                        id="name"
-                        type="text"
-                        placeholder="Enter your name"
-                        value={this.state.name}
-                        onChange={this.handleChangeName}
-                    />
+                 <div className="valign-wrapper row login-box">
+                    <div className="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
+                        <form  onSubmit={this.handleSubmit}>
+                            <div className="card-content">
+                                <span className="card-title">Register</span>
+                                <div className="row">
+                                    <div className="input-field col s6">
+                                        <input
+                                            required
+                                            id="name"
+                                            type="text"
+                                            placeholder="Enter your name"
+                                            value={this.state.name}
+                                            onChange={this.handleChangeName}
+                                        />
+                                    </div>
+                                    <div className="input-field col s6">
+                                        <input
+                                            required
+                                            id="age"
+                                            type="number"
+                                            className="form-control "
+                                            placeholder="Enter age"
+                                            value={this.state.age}
+                                            onChange={this.handleChangeAge}
+                                        />
+                                    </div>
+                                    <div className="input-field col s12">
+                                        <input
+                                            required
+                                            id="email"
+                                            type="email"
+                                            className="form-control "
+                                            placeholder="Enter new email"
+                                            value={this.state.email}
+                                            onChange={this.handleChangeEmail} 
+                                        />
+                                    </div>
+                                    <div className="input-field col s12">
+                                        <input
+                                            equired
+                                            type="text"
+                                            className="form-control"
+                                            id="password"
+                                            placeholder="Enter new Password"
+                                            value={this.state.password}
+                                            onChange={this.handleChangePassword} 
+                                            />
+                                    </div>
 
-                    <input
-                        required
-                        id="age"
-                        type="number"
-                        className="form-control "
-                        placeholder="Enter age"
-                        value={this.state.age}
-                        onChange={this.handleChangeAge}
-                    />
-
-                    <input
-                        required
-                        id="email"
-                        type="email"
-                        className="form-control "
-                        placeholder="Enter new email"
-                        value={this.state.email}
-                        onChange={this.handleChangeEmail}
-                    />
-
-                    <input
-                        required
-                        type="text"
-                        className="form-control"
-                        id="password"
-                        placeholder="Enter new Password"
-                        value={this.state.password}
-                        onChange={this.handleChangePassword}
-                    />
-
-
-                    <input type="submit" className="btn btn-primary snapButton" value="Submit" />
-
-                    <div className="sign">
-                        Already have an account? <Link to="/login">Login In</Link>
+                                    <div className="input-field col s12 center-align">
+                                        <input type="submit" className="btn snapButton waves-effect waves-light btn-large" value="Submit" />
+                                    </div>
+                                    <p className="center-align">Already have an account? <Link to="/login">Log In</Link></p>
+                            </div>
+                        </div>
+                    </form>
                     </div>
-                </form>
-            </div>
+                </div>
         );
     }
 }

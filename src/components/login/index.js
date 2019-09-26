@@ -7,7 +7,7 @@ class Login extends React.Component {
         super(props);
 
         this.state = {
-            email: "test@test.com",
+            email: "",
             password: "",
             showPassword: false
         };
@@ -39,44 +39,99 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className="container login">
-                <form
+            <div className="container">
+                <div className="valign-wrapper row login-box">
+                    <div className="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
+                        <form  onSubmit={this.handleSubmit}>
+                        <div className="card-content">
+                            <span className="card-title">LOGIN</span>
+                            <div className="row">
+                            <div className="input-field col s12">
+                                <input
+                                required
+                                                        id="email"
+                                                        type="email"
+                                                        className="form-control loginInput loginEmail"
+                                                        placeholder="Enter email"
+                                                        value={this.state.email}
+                                                        onChange={this.handleChangeEmail}
+                                />
+                            </div>
+                            <div className="input-field col s12">
+                                <input
+                                required
+                                                        type="password"
+                                                        className="form-control loginInput loginPassword"
+                                                        id="password"
+                                                        placeholder="Password"
+                                                        value={this.state.password}
+                                                        onChange={this.handleChangePassword} />
+                            </div>
+
+                        <div className="input-field col s12 center-align">
+                            <input type="submit" className="btn snapButton waves-effect waves-light btn-large loginbutton" value="Login"/>
+                        </div>
+                        <p className="center-align">Don't have an account? <Link to="/register">Sign In</Link></p>
+                            
+                            </div>
+                        </div>
+                        
+                            <div className="card-action right-align">
+                                <p>Demo Email: test@test.com</p>
+                                <p>Demo Pass: test</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+{/*               
+
+                <div class="row">
+                <div className="col s6 loginImg">
+                    </div>
+                    <div className="col s6 ">
+                    <form
                     onSubmit={this.handleSubmit}
+                    >
+                    <h3>Login</h3>
+                            <div className="form-group">
+                                <input
+                                    required
+                                    id="email"
+                                    type="email"
+                                    className="form-control loginInput loginEmail"
+                                    placeholder="Enter email"
+                                    value={this.state.email}
+                                    onChange={this.handleChangeEmail}
+                                />
+                            </div>
 
-                >
-                    <div className="form-group">
-                        <i className="material-icons">directions_walk</i>
-                        <h3>Login</h3>
-                        <input
-                            required
-                            id="email"
-                            type="email"
-                            className="form-control loginInput loginEmail"
-                            placeholder="Enter email"
-                            value={this.state.email}
-                            onChange={this.handleChangeEmail}
-                        />
+                            <div className="form-group">
+                                <input
+                                    required
+                                    type="password"
+                                    className="form-control loginInput loginPassword"
+                                    id="password"
+                                    placeholder="Password"
+                                    value={this.state.password}
+                                    onChange={this.handleChangePassword}
+                                />
+                            </div>
+
+                            <div className="form-group">
+                            <input type="submit" className="btn btn-primary snapButton" value="Submit" />
+                            </div>
+
+                            <div className="form-group">
+                                <div className="sign">
+                                    Don't have an account? <Link to="/register">Sign In</Link>
+                                </div>
+                            </div>
+
+                        </form>
                     </div>
-
-                    <div className="form-group password">
-                        <input
-                            required
-                            type="password"
-                            className="form-control loginInput loginPassword"
-                            id="password"
-                            placeholder="Password"
-                            value={this.state.password}
-                            onChange={this.handleChangePassword}
-                        />
-
-                    </div>
-
-                    <input type="submit" className="btn btn-primary snapButton" value="Submit" />
-
-                    <div className="sign">
-                        Don't have an account? <Link to="/register">Sign In</Link>
-                    </div>
-                </form>
+                    </div> */}
             </div>
 
 

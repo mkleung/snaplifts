@@ -5,8 +5,6 @@ import React from 'react'
 class Start extends React.Component {
 
     changeWorkout = (workout) => {
-
-
         this.props.changeWorkoutParent(workout);
         this.props.history.push(`/workouts`)
     }
@@ -16,7 +14,7 @@ class Start extends React.Component {
             // backgroundImage: "url(https://via.placeholder.com/250)"
         };
         return (
-            <div className="start">
+            <div className="start card hoverable">
                 <div className="left" style={logoStyle}>
                     {/* <img className="squat" src="./assets/squats.png" alt="squat"></img> */}
                 </div>

@@ -5,7 +5,7 @@ import UIfx from 'uifx'
 import bellAudio from "./bell.mp3"
 import { Link } from "react-router-dom";
 
-const LIMIT = 10;
+const LIMIT = 60;
 
 const bell = new UIfx(
   bellAudio,
