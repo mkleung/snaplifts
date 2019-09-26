@@ -11,7 +11,7 @@ class Nav extends React.Component {
         return (
             <nav>
                 <div className="nav-wrapper">
-                    <a href="/" className="brand-logo">SnapLifts</a>
+                    <a href="/snaplifts" className="brand-logo">SnapLifts</a>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         {this.props.loginUser === null && <li><NavLink activeClassName='active' to="/login">Login</NavLink></li>}
                         {this.props.loginUser === null && <li> <NavLink activeClassName='active' to="/register">Register</NavLink></li>}
