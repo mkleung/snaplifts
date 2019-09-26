@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ed97319fd45a1b230661787e6a606855",
+    "revision": "3f99fb40d483432c4e601b88c0f26298",
     "url": "/snaplifts/index.html"
   },
   {
-    "revision": "deab52e9c7b550364e63",
+    "revision": "0dd189282f21154bf2d4",
     "url": "/snaplifts/static/css/main.837a4c9f.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/snaplifts/static/js/2.7a4d61cf.chunk.js"
   },
   {
-    "revision": "deab52e9c7b550364e63",
-    "url": "/snaplifts/static/js/main.99511d1e.chunk.js"
+    "revision": "0dd189282f21154bf2d4",
+    "url": "/snaplifts/static/js/main.437c2a3f.chunk.js"
   },
   {
     "revision": "aedb45d7df3483200b5e",

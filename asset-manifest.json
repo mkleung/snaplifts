@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/snaplifts/static/css/main.837a4c9f.chunk.css",
-    "main.js": "/snaplifts/static/js/main.99511d1e.chunk.js",
-    "main.js.map": "/snaplifts/static/js/main.99511d1e.chunk.js.map",
+    "main.js": "/snaplifts/static/js/main.437c2a3f.chunk.js",
+    "main.js.map": "/snaplifts/static/js/main.437c2a3f.chunk.js.map",
     "runtime~main.js": "/snaplifts/static/js/runtime~main.43f663a7.js",
     "runtime~main.js.map": "/snaplifts/static/js/runtime~main.43f663a7.js.map",
     "static/js/2.7a4d61cf.chunk.js": "/snaplifts/static/js/2.7a4d61cf.chunk.js",
     "static/js/2.7a4d61cf.chunk.js.map": "/snaplifts/static/js/2.7a4d61cf.chunk.js.map",
     "index.html": "/snaplifts/index.html",
-    "precache-manifest.c836fa2ed98b798f3746095307fd2d22.js": "/snaplifts/precache-manifest.c836fa2ed98b798f3746095307fd2d22.js",
+    "precache-manifest.ef44135e2e6dac5c626030ac1d7862eb.js": "/snaplifts/precache-manifest.ef44135e2e6dac5c626030ac1d7862eb.js",
     "service-worker.js": "/snaplifts/service-worker.js",
     "static/css/main.837a4c9f.chunk.css.map": "/snaplifts/static/css/main.837a4c9f.chunk.css.map",
     "static/media/bell.mp3": "/snaplifts/static/media/bell.0faab93e.mp3"
